@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:weightSum="2"
+    android:id="@+id/Login_Root">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/Custom_SnackBar_Linear"
+        android:visibility="gone">
+
+        <www.charkhtafi.com.charkhtafi.Utils.Views.CustomTextView
+            android:layout_width="0dp"
+            android:layout_weight="0.4"
+            android:layout_height="wrap_content"
+            android:padding="8dp"
+            android:text="click"
+            android:textSize="20sp"
+            android:gravity="center"
+            android:id="@+id/Custom_SnackBar_Linear_First"/>
+
+        <www.charkhtafi.com.charkhtafi.Utils.Views.CustomTextView
+            android:id="@+id/Custom_SnackBar_Linear_Second"
+            android:layout_width="0dp"
+            android:layout_weight="1.6"
+            android:layout_height="wrap_content"
+            android:padding="8dp"
+            android:text="با مشکل مواجه شد"
+            android:textSize="20sp"
+            android:gravity="center" />
+
+
+    </LinearLayout>
+
+    <www.charkhtafi.com.charkhtafi.Utils.Views.CustomTextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="8dp"
+        android:text="ok"
+        android:gravity="center"
+        android:id="@+id/Custom_SnackBar_Text"
+        android:textColor="#FFF"
+        android:visibility="gone"/>
+
+</RelativeLayout>

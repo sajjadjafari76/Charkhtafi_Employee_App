@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="5dp"
+    android:layoutDirection="rtl"
+    app:cardElevation="1dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+        <LinearLayout
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:orientation="vertical">
+
+            <com.github.florent37.expansionpanel.ExpansionHeader
+                android:layout_height="60dp"
+                android:layout_width="match_parent"
+                app:expansion_headerIndicator="@id/headerIndicator"
+                app:expansion_layout="@id/expansionLayout"
+                app:expansion_toggleOnClick="true"
+                android:background="#F4F4F4">
+
+                <!-- HEADER -->
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:layout_width="42dp"
+                        android:layout_height="42dp"
+                        android:src="@drawable/pineapple"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginRight="2dp"
+                        android:layout_centerVertical="true"
+                        android:id="@+id/CustomEditPrice_Image"/>
+
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_toRightOf="@+id/CustomTotalOrder_View2"
+                        android:layout_toLeftOf="@+id/CustomEditPrice_Image"
+                        android:gravity="center_vertical"
+                        android:weightSum="3"
+                        android:orientation="horizontal">
+
+
+                    <www.charkhtafi.com.charkhtafi.Utils.Views.CustomTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:gravity="center_vertical"
+                        android:singleLine="true"
+                        android:maxLines="1"
+                        android:id="@+id/CustomEditPrice_Name"
+                        android:text="آناناس"
+                        android:textColor="#000"
+                        android:layout_marginRight="5dp"
+                        android:textSize="13sp"/>
+
+
+
+                    </RelativeLayout>
+
+                    <View
+                        android:layout_width="0.8dp"
+                        android:layout_height="match_parent"
+                        android:background="#b9b9b9"
+                        android:layout_toRightOf="@+id/CustomTotalOrder_View3"
+                        android:id="@+id/CustomTotalOrder_View2"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginBottom="10dp"
+                        android:layout_marginRight="5dp"
+                        android:layout_marginLeft="5dp"/>
+
+                    <RelativeLayout
+                        android:layout_width="95dp"
+                        android:layout_height="match_parent"
+                        android:layout_toRightOf="@+id/headerIndicator"
+                        android:gravity="center"
+                        android:id="@+id/CustomTotalOrder_View3"
+                        android:layout_marginLeft="3dp">
+
+                        <www.charkhtafi.com.charkhtafi.Utils.Views.CustomTextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/CustomEditPrice_Price"
+                            android:text="2000 تومان"
+                            android:textColor="#FFF"
+                            android:gravity="center"
+                            android:layout_centerVertical="true"
+                            android:layout_marginRight="8dp"
+                            android:textSize="12sp"
+                            android:paddingLeft="9dp"
+                            android:paddingRight="9dp"
+                            android:paddingTop="2dp"
+                            android:paddingBottom="2dp"
+                            android:background="@drawable/shape_custom_total"/>
+
+                    </RelativeLayout>
+
+
+                    <ImageView
+                        android:adjustViewBounds="true"
+                        android:id="@+id/headerIndicator"
+                        android:layout_centerVertical="true"
+                        android:layout_alignParentLeft="true"
+                        android:layout_height="match_parent"
+                        android:layout_width="30dp"
+                        android:padding="5dp"
+                        app:srcCompat="@drawable/left_chevron" />
+                </RelativeLayout>
+
+                <!-- HEADER INDICATOR -->
+
+
+
+
+            </com.github.florent37.expansionpanel.ExpansionHeader>
+
+            <com.github.florent37.expansionpanel.ExpansionLayout
+                android:id="@+id/expansionLayout"
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                app:expansion_expanded="false">
+
+                <!-- CONTENT -->
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+
+                    <www.charkhtafi.com.charkhtafi.Utils.Views.CustomTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="لطفا قیمت جدید را وارد کنید..."
+                        android:textColor="#555"
+                        android:textSize="12sp"
+                        android:layout_alignParentRight="true"
+                        android:id="@+id/CustomEditPrice_View3"
+                        android:layout_marginTop="4dp"
+                        android:layout_marginRight="8dp"/>
+
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/CustomEditPrice_View3"
+                        android:paddingRight="15dp"
+                        android:paddingLeft="15dp"
+                        android:layout_marginTop="7dp"
+                        android:paddingBottom="3dp">
+
+                        <www.charkhtafi.com.charkhtafi.Utils.Views.CustomEdittext
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_toLeftOf="@+id/CustomEditPrice_ViewCheck"
+                            android:paddingLeft="8dp"
+                            android:paddingRight="8dp"
+                            android:paddingBottom="5dp"
+                            android:paddingTop="5dp"
+                            android:gravity="center"
+                            android:inputType="numberDecimal"
+                            android:textSize="12sp"
+                            android:id="@+id/CustomEditPrice_EditText"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginRight="5dp"
+                            android:background="@drawable/shape_custom_total_edittext"/>
+
+
+                        <RelativeLayout
+                            android:layout_width="42dp"
+                            android:layout_height="42dp"
+                            android:layout_alignParentRight="true"
+                            android:id="@+id/CustomEditPrice_ViewCheck">
+
+                            <ImageView
+                                android:layout_width="42dp"
+                                android:layout_height="42dp"
+                                android:id="@+id/CustomEditPrice_Ok"
+                                app:srcCompat="@drawable/ic_check_1"
+                                android:padding="5dp"/>
+
+
+                            <ProgressBar
+                                android:layout_width="42dp"
+                                android:layout_height="42dp"
+                                android:id="@+id/CustomEditPrice_Progress"
+                                android:visibility="gone"
+                                app:srcCompat="@drawable/ic_check_1"
+                                android:padding="5dp"/>
+
+                        </RelativeLayout>
+
+
+
+                    </RelativeLayout>
+
+                </RelativeLayout>
+
+            </com.github.florent37.expansionpanel.ExpansionLayout>
+
+        </LinearLayout>
+
+</android.support.v7.widget.CardView>

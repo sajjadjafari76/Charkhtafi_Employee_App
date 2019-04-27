@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="50dp"
+    android:padding="3dp"
+    android:clickable="true"
+    android:background="?android:attr/selectableItemBackground"
+    android:id="@+id/CustomAllDeliveryDone">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/CustomAllDeliveryView">
+
+        <ImageView
+            android:layout_width="42dp"
+            android:layout_height="42dp"
+            android:padding="7dp"
+            android:contentDescription="@string/app_name"
+            android:src="@drawable/ic_motorbike"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:id="@+id/CustomAllDeliveryName1"/>
+
+        <www.charkhtafi.com.charkhtafi.Utils.Views.CustomTextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:text="سجاد جعفری "
+            android:textColor="#000"
+            android:layout_marginRight="8dp"
+            android:textSize="16sp"
+            android:id="@+id/CustomAllDeliveryName"
+            android:layout_toLeftOf="@+id/CustomAllDeliveryName1"/>
+
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#43bababa"
+        android:layout_alignParentBottom="true"/>
+
+</RelativeLayout>

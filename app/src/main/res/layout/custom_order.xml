@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="8dp"
+    android:layoutDirection="rtl"
+    app:cardElevation="2dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <android.support.v7.widget.CardView
+            android:id="@+id/CustomOrder_View1"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            app:cardElevation="1dp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:background="#F4F4F4">
+
+                <www.charkhtafi.com.charkhtafi.Utils.Views.CustomTextView
+                    android:id="@+id/CustomOrder_Factor"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text="شماره فاکتور : 163485"
+                    android:textColor="#000"
+                    android:textSize="15sp" />
+
+                <ImageView
+                    android:id="@+id/CustomOrder_PreOrderImage"
+                    android:layout_width="40dp"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginLeft="4dp"
+                    android:padding="5dp"
+                    android:contentDescription="@string/app_name"
+                    app:srcCompat="@drawable/preorder" />
+
+            </RelativeLayout>
+
+
+        </android.support.v7.widget.CardView>
+
+        <RelativeLayout
+            android:id="@+id/CustomOrder_View22"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/CustomOrder_View1"
+            android:visibility="gone">
+
+
+            <android.support.v7.widget.CardView
+                android:id="@+id/CustomOrder_View2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardElevation="0dp">
+
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/CustomOrderRecycler"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+            </android.support.v7.widget.CardView>
+
+            <www.charkhtafi.com.charkhtafi.Utils.Views.CustomTextView
+                android:id="@+id/CustomOrderDescription"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/CustomOrder_View2"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:textColor="#000" />
+
+            <View
+                android:id="@+id/CustomOrder_View4"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_below="@+id/CustomOrderDescription"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="11dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginBottom="5dp"
+                android:background="#F5F5F5" />
+
+            <android.support.v7.widget.CardView
+                android:id="@+id/CustomOrder_View3"
+                android:layout_width="130dp"
+                android:layout_height="35dp"
+                android:layout_below="@+id/CustomOrder_View4"
+                android:layout_alignParentLeft="true"
+                android:layout_margin="8dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:foreground="?android:attr/selectableItemBackground"
+                app:cardCornerRadius="3dp"
+                app:cardElevation="2dp">
+
+                <www.charkhtafi.com.charkhtafi.Utils.Views.CustomTextView
+                    android:id="@+id/CustomOrder_Send"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="#FF1488D5"
+                    android:drawableRight="@drawable/ic_motorbike"
+                    android:gravity="center"
+                    android:padding="5dp"
+                    android:text="ارسال به پیک"
+                    android:textColor="#FFF"
+                    android:textSize="13sp" />
+
+            </android.support.v7.widget.CardView>
+
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/CustomOrder_Active"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:layout_below="@+id/CustomOrder_View1"
+            android:gravity="center"
+            android:visibility="visible">
+
+
+            <www.charkhtafi.com.charkhtafi.Utils.Views.CustomTextView
+                android:id="@+id/Order_Question"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="این فاکتور به شما ارجاع داده شده است."
+                android:textColor="#000" />
+
+
+            <Button
+                android:id="@+id/Order_Yes"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/Order_Question"
+                android:layout_marginTop="10dp"
+                android:backgroundTint="#00FF00"
+                android:fontFamily="@font/shabnam"
+                android:text="پذیرش"
+                android:textColor="#FFF" />
+
+            <Button
+                android:id="@+id/Order_No"
+                android:layout_width="110dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/Order_Question"
+                android:layout_marginTop="10dp"
+                android:layout_toLeftOf="@+id/Order_Yes"
+                android:backgroundTint="#FF0000"
+                android:fontFamily="@font/shabnam"
+                android:text="عدم پذیرش"
+                android:textColor="#FFF" />
+
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+</android.support.v7.widget.CardView>

@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">CharkhTafi</string>
+
+
+    /// Login page
+    <string name="LogoDescription">CharkhTafi</string>
+    <string name="UserName">نام کاربری</string>
+    <string name="Mobile">رمز عبور</string>
+    <string name="BtnLogin">ورود به سیستم</string>
+    <string name="UserNameNullError">نام کاربری نمیتواند خالی باشد!</string>
+    <string name="MobileNullError">شماره موبایل نمیتواند خالی باشد!</string>
+    <string name="InternetIsDisconnect">دسترسی به اینترنت موجود نیست!</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+
+</resources>

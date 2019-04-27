@@ -1,0 +1,121 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="#FFF"
+    android:layoutDirection="rtl"
+    tools:context="www.charkhtafi.com.charkhtafi.Fragment.Delivery">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:id="@+id/DeliveryLoading"
+        android:visibility="visible"
+        android:alpha="0.8"
+        android:background="#c6c0c0">
+
+        <com.wang.avi.AVLoadingIndicatorView
+            android:id="@+id/avi"
+            android:layout_width="66dp"
+            android:layout_height="66dp"
+            style="@style/AVLoadingIndicatorView"
+            android:visibility="visible"
+            app:indicatorName="BallClipRotatePulseIndicator"
+            app:indicatorColor="#c21e1e"/>
+
+        <www.charkhtafi.com.charkhtafi.Utils.Views.CustomTextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="لطفا صبر کنید!"
+            android:gravity="center"
+            android:textSize="13sp"/>
+
+    </LinearLayout>
+
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/DeliveryRefresh">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <android.support.v7.widget.RecyclerView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/DeliveryRecyclerView"
+                android:visibility="gone"/>
+
+
+            <LinearLayout
+                android:id="@+id/Delivery_Empty"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="150dp"
+                    android:src="@drawable/empty_basket" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:fontFamily="@font/shabnam"
+                    android:gravity="center"
+                    android:text="محصولی یافت نشد."
+                    android:textSize="20sp" />
+
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:id="@+id/Delivery_Connectivity"
+                android:visibility="gone"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="37dp"
+                    android:layout_height="37dp"
+                    app:srcCompat="@drawable/wifi_off"
+                    android:layout_marginBottom="12dp"/>
+
+                <www.charkhtafi.com.charkhtafi.Utils.Views.CustomTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="شما به اینترنت متصل نمی باشید!"
+                    android:gravity="center"
+                    android:textSize="16sp"
+                    android:textColor="#000"/>
+
+                <Button
+                    android:layout_width="130dp"
+                    android:layout_height="28dp"
+                    android:layout_marginTop="18dp"
+                    android:text="تلاش مجدد"
+                    android:textSize="12sp"
+                    android:id="@+id/Delivery_Btn"
+                    android:textColor="#000"
+                    android:background="@drawable/bg_network"/>
+
+            </LinearLayout>
+
+
+        </RelativeLayout>
+
+    </android.support.v4.widget.SwipeRefreshLayout>
+
+
+
+</FrameLayout>

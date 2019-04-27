@@ -1,0 +1,291 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="6dp"
+    android:layoutDirection="rtl">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <android.support.v7.widget.CardView
+            android:id="@+id/Delivery_View1"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            app:cardElevation="1dp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:background="#F4F4F4">
+
+                <www.charkhtafi.com.charkhtafi.Utils.Views.CustomTextView
+                    android:id="@+id/CustomOrder_Factor"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text="نام مشتری : جعفری"
+                    android:textColor="#000"
+                    android:textSize="14sp" />
+
+                <ImageView
+                    android:id="@+id/CustomDelivery_Ok"
+                    android:layout_width="33dp"
+                    android:layout_height="28dp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="8dp"
+                    android:padding="2dp"
+                    android:background="@drawable/accept_model"
+                    android:contentDescription="@string/app_name"
+                    app:srcCompat="@drawable/ic_check_1" />
+
+                <ImageView
+                    android:id="@+id/CustomDelivery_PreOrderImage"
+                    android:layout_width="40dp"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginLeft="4dp"
+                    android:padding="5dp"
+                    android:contentDescription="@string/app_name"
+                    app:srcCompat="@drawable/preorder" />
+
+            </RelativeLayout>
+
+        </android.support.v7.widget.CardView>
+
+        <LinearLayout
+            android:id="@+id/Delivery_View2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/Delivery_View1"
+            android:background="#FFF"
+            android:padding="3dp"
+            android:weightSum="2">
+
+            <www.charkhtafi.com.charkhtafi.Utils.Views.CustomTextView
+                android:id="@+id/CustomDelivery_Name"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:drawableRight="@drawable/ic_user_silhouette"
+                android:drawablePadding="8dp"
+                android:gravity="center_vertical"
+                android:paddingLeft="3dp"
+                android:paddingTop="5dp"
+                android:paddingRight="3dp"
+                android:paddingBottom="5dp"
+                android:text="سجاد"
+                android:textColor="#000" />
+
+
+            <www.charkhtafi.com.charkhtafi.Utils.Views.CustomTextView
+                android:id="@+id/CustomDelivery_Total"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:drawableRight="@drawable/ic_coins"
+                android:drawablePadding="8dp"
+                android:gravity="center_vertical"
+                android:paddingLeft="3dp"
+                android:paddingTop="5dp"
+                android:paddingRight="3dp"
+                android:paddingBottom="5dp"
+                android:text="2000 تومان"
+                android:textColor="#000" />
+
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:id="@+id/Delivery_View4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/Delivery_View2"
+            android:background="#FFF"
+            android:padding="3dp"
+            android:weightSum="2">
+
+            <www.charkhtafi.com.charkhtafi.Utils.Views.CustomTextView
+                android:id="@+id/CustomDelivery_Debtor"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:drawableRight="@drawable/ic_coins"
+                android:drawablePadding="8dp"
+                android:gravity="center_vertical"
+                android:paddingLeft="3dp"
+                android:paddingTop="5dp"
+                android:paddingRight="3dp"
+                android:paddingBottom="5dp"
+                android:text="بدهکاری"
+                android:textColor="#000" />
+
+
+            <www.charkhtafi.com.charkhtafi.Utils.Views.CustomTextView
+                android:id="@+id/CustomDelivery_Time"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:drawableRight="@drawable/ic_alarm_clock"
+                android:drawablePadding="8dp"
+                android:gravity="center_vertical"
+                android:paddingLeft="3dp"
+                android:paddingTop="5dp"
+                android:paddingRight="3dp"
+                android:paddingBottom="5dp"
+                android:text="13 - 15"
+                android:textColor="#000" />
+
+
+        </LinearLayout>
+
+
+
+        <LinearLayout
+            android:id="@+id/Delivery_View5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/Delivery_View4"
+            android:background="#FFF"
+            android:padding="3dp"
+            android:weightSum="2">
+
+            <www.charkhtafi.com.charkhtafi.Utils.Views.CustomTextView
+                android:id="@+id/CustomDelivery_Payment"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:drawableRight="@drawable/ic_credit_card"
+                android:drawablePadding="8dp"
+                android:gravity="center_vertical"
+                android:paddingLeft="3dp"
+                android:paddingTop="5dp"
+                android:paddingRight="3dp"
+                android:paddingBottom="5dp"
+                android:text="نقدی"
+                android:textColor="#000" />
+
+
+            <www.charkhtafi.com.charkhtafi.Utils.Views.CustomTextView
+                android:id="@+id/CustomDelivery_Bike"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:drawableRight="@drawable/ic_motorbike"
+                android:drawablePadding="8dp"
+                android:gravity="center_vertical"
+                android:paddingLeft="3dp"
+                android:paddingTop="5dp"
+                android:paddingRight="3dp"
+                android:paddingBottom="5dp"
+                android:text=" رایگان"
+                android:textColor="#000" />
+
+
+        </LinearLayout>
+
+
+        <www.charkhtafi.com.charkhtafi.Utils.Views.CustomTextView
+            android:id="@+id/CustomDelivery_Address"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/Delivery_View5"
+            android:drawableRight="@drawable/ic_house"
+            android:drawablePadding="10dp"
+            android:gravity="center"
+            android:padding="4dp"
+            android:text="آدرس : قزوین ، مینودر ، بدرشرقی ، بدریکم ، پلاک 26" />
+
+
+        <View
+            android:id="@+id/Delivery_View3"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_below="@+id/CustomDelivery_Address"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginBottom="5dp"
+            android:background="#F5F5F5" />
+
+
+        <com.github.florent37.expansionpanel.ExpansionHeader
+            android:id="@+id/Delivery_Header"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_below="@+id/Delivery_View3"
+            android:background="#FFF"
+            app:expansion_headerIndicator="@id/headerIndicator"
+            app:expansion_layout="@id/expansionLayout"
+            app:expansion_toggleOnClick="true">
+
+            <!-- HEADER -->
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_toLeftOf="@+id/CustomEditPrice_Image"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:weightSum="3">
+
+
+                    <www.charkhtafi.com.charkhtafi.Utils.Views.CustomTextView
+                        android:id="@+id/CustomEditPrice_Name"
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:layout_marginRight="8dp"
+                        android:gravity="center_vertical"
+                        android:maxLines="1"
+                        android:singleLine="true"
+                        android:text="جزییات سفارش"
+                        android:textColor="#000"
+                        android:textSize="13sp" />
+
+
+                </RelativeLayout>
+
+
+                <ImageView
+                    android:id="@+id/headerIndicator"
+                    android:layout_width="30dp"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="8dp"
+                    android:adjustViewBounds="true"
+                    android:padding="5dp"
+                    app:srcCompat="@drawable/left_chevron" />
+            </RelativeLayout>
+
+            <!-- HEADER INDICATOR -->
+
+
+        </com.github.florent37.expansionpanel.ExpansionHeader>
+
+        <com.github.florent37.expansionpanel.ExpansionLayout
+            android:id="@+id/expansionLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/Delivery_Header">
+
+            <!-- CONTENT -->
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/Delivery_RecyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+        </com.github.florent37.expansionpanel.ExpansionLayout>
+
+    </RelativeLayout>
+
+</android.support.v7.widget.CardView>

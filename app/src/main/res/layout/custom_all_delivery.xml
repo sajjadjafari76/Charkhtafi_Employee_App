@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <www.charkhtafi.com.charkhtafi.Utils.Views.CustomTextView
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:text="لیست پیک ها"
+        android:gravity="center"
+        android:textColor="#000"
+        android:textSize="16sp"
+        android:background="#F4F4F4"
+        android:id="@+id/CustomAllDeliveryText"/>
+
+
+    <ImageView
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:padding="2dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="5dp"
+        android:id="@+id/CustomAllDeliveryCancel"
+        android:src="@drawable/ic_clear_black"/>
+
+    <android.support.v7.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="5dp"
+        android:layout_below="@+id/CustomAllDeliveryText"
+        android:id="@+id/CustomAllDelivery">
+
+    </android.support.v7.widget.RecyclerView>
+
+</RelativeLayout>

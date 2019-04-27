@@ -1,0 +1,118 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:animateLayoutChanges="true"
+    android:background="#FFF"
+    android:layoutDirection="rtl"
+    tools:context="www.charkhtafi.com.charkhtafi.Fragment.Edit_Price">
+
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:id="@+id/EditPriceRefresh"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="visible">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/EditPriceRecyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="gone" />
+
+            <LinearLayout
+                android:id="@+id/EditPriceLoading"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:alpha="0.8"
+                android:background="#c6c0c0"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:visibility="visible">
+
+                <com.wang.avi.AVLoadingIndicatorView
+                    android:id="@+id/avi"
+                    style="@style/AVLoadingIndicatorView"
+                    android:layout_width="66dp"
+                    android:layout_height="66dp"
+                    android:visibility="visible"
+                    app:indicatorColor="#c21e1e"
+                    app:indicatorName="BallClipRotatePulseIndicator" />
+
+                <www.charkhtafi.com.charkhtafi.Utils.Views.CustomTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="لطفا صبر کنید!"
+                    android:textSize="13sp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/Edit_Price_Connectivity"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <ImageView
+                    android:layout_width="37dp"
+                    android:layout_height="37dp"
+                    android:layout_marginBottom="12dp"
+                    app:srcCompat="@drawable/wifi_off" />
+
+                <www.charkhtafi.com.charkhtafi.Utils.Views.CustomTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="شما به اینترنت متصل نمی باشید!"
+                    android:textColor="#000"
+                    android:textSize="16sp" />
+
+                <Button
+                    android:id="@+id/Edit_Price_Btn"
+                    android:layout_width="130dp"
+                    android:layout_height="28dp"
+                    android:layout_marginTop="18dp"
+                    android:background="@drawable/bg_network"
+                    android:text="تلاش مجدد"
+                    android:textColor="#000"
+                    android:textSize="12sp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/EditPrice_Empty"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="150dp"
+                    android:src="@drawable/empty_basket" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:fontFamily="@font/shabnam"
+                    android:gravity="center"
+                    android:text="محصولی یافت نشد."
+                    android:textSize="20sp" />
+
+
+            </LinearLayout>
+
+        </RelativeLayout>
+
+    </android.support.v4.widget.SwipeRefreshLayout>
+
+</FrameLayout>

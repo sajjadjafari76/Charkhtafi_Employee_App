@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="185dp"
+    app:cardElevation="2dp"
+    app:cardCornerRadius="0dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:layout_width="180dp"
+            android:layout_height="70dp"
+            android:src="@drawable/logo"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
+            android:id="@+id/Header_Image"/>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_below="@+id/Header_Image"
+            android:gravity="center">
+
+            <www.charkhtafi.com.charkhtafi.Utils.Views.CustomTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:paddingRight="15dp"
+                android:paddingLeft="15dp"
+                android:layout_centerHorizontal="true"
+                android:paddingBottom="3dp"
+                android:paddingTop="3dp"
+                android:text="نام : سجاد"
+                android:textColor="#34495e"
+                android:id="@+id/Header_Name"/>
+
+            <www.charkhtafi.com.charkhtafi.Utils.Views.CustomTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/Header_Name"
+                android:paddingRight="15dp"
+                android:paddingLeft="15dp"
+                android:paddingBottom="3dp"
+                android:layout_centerHorizontal="true"
+                android:paddingTop="3dp"
+                android:textSize="12sp"
+                android:id="@+id/Header_Type"
+                android:textColor="#34495e"
+                tools:text="نوع : کارپرداز"/>
+
+
+        </RelativeLayout>
+
+
+    </RelativeLayout>
+
+</android.support.v7.widget.CardView>

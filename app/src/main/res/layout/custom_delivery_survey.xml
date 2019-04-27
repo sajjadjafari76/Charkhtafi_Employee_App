@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layoutDirection="rtl"
+    android:layout_margin="16dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <www.charkhtafi.com.charkhtafi.Utils.Views.CustomTextView
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:background="#F5F5F5"
+            android:text="نظرسنجی"
+            android:gravity="center"
+            android:textColor="#000"
+            android:id="@+id/CustomDeliverySurveyView">
+
+        </www.charkhtafi.com.charkhtafi.Utils.Views.CustomTextView>
+
+        <android.support.v7.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+            android:layout_below="@+id/CustomDeliverySurveyView"
+            android:id="@+id/CustomDeliverySurveyRecycler">
+
+        </android.support.v7.widget.RecyclerView>
+
+
+
+        <android.support.v7.widget.CardView
+            android:layout_width="110dp"
+            android:layout_height="33dp"
+            app:cardElevation="2dp"
+            app:cardCornerRadius="2dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginBottom="8dp"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@+id/CustomDeliverySurveyRecycler"
+            android:clickable="true"
+            android:focusable="true"
+            android:foreground="?android:attr/selectableItemBackground">
+
+            <www.charkhtafi.com.charkhtafi.Utils.Views.CustomTextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#009436"
+                android:text="ارسال"
+                android:textColor="#FFF"
+                android:gravity="center"
+                android:textSize="14sp"
+                android:padding="3dp"
+                android:id="@+id/CustomDeliverySurvey_Btn"/>
+
+        </android.support.v7.widget.CardView>
+
+
+    </RelativeLayout>
+
+</android.support.v7.widget.CardView>

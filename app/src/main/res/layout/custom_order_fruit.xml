@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="95dp"
+    android:padding="5dp"
+    android:layoutDirection="rtl">
+
+    <!--<RelativeLayout-->
+        <!--android:layout_width="23dp"-->
+        <!--android:layout_height="match_parent"-->
+        <!--android:layout_alignParentLeft="true"-->
+        <!--android:id="@+id/OrderFruit_View3"-->
+        <!--android:gravity="center">-->
+
+        <!--<ImageView-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:src="@drawable/ic_clear_black"-->
+            <!--android:contentDescription="@string/app_name"-->
+            <!--android:id="@+id/OrderFruit_Delete"/>-->
+
+
+    <!--</RelativeLayout>-->
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/OrderFruit_View1">
+        <!--android:layout_toRightOf="@+id/OrderFruit_View3"-->
+
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:layout_width="42dp"
+        android:layout_height="42dp"
+        android:layout_centerVertical="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="10dp"
+        android:id="@+id/OrderFruit_Image"
+        android:src="@drawable/pineapple"/>
+
+    <www.charkhtafi.com.charkhtafi.Utils.Views.CustomTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toLeftOf="@+id/OrderFruit_Image"
+        android:layout_marginRight="8dp"
+        android:text="سیب زمینی"
+        android:textColor="#2F313D"
+        android:layout_centerVertical="true"
+        android:textSize="16sp"
+        android:id="@+id/OrderFruit_Name"/>
+
+    <www.charkhtafi.com.charkhtafi.Utils.Views.CustomTextView
+        android:layout_width="85dp"
+        android:layout_height="25dp"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="10dp"
+        android:layout_centerVertical="true"
+        android:background="@drawable/shape_custom_total"
+        android:text="12 کیلوگرم"
+        android:textColor="#FFF"
+        android:gravity="center"
+        android:textSize="12sp"
+        android:id="@+id/OrderFruit_TotalWeight"/>
+
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/OrderFruit_View2"
+        android:layout_below="@+id/OrderFruit_View1"
+        android:orientation="horizontal"
+
+        android:weightSum="6"
+        android:layout_marginTop="5dp">
+        <!--android:layout_toRightOf="@+id/OrderFruit_View3"-->
+
+        <www.charkhtafi.com.charkhtafi.Utils.Views.CustomTextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1.2"
+            android:text="6.5"
+            android:gravity="center"
+            android:textColor="#000"
+            android:textSize="12sp"
+            android:layout_marginLeft="1dp"
+            android:background="@drawable/shape_custom_total_edittext"
+            android:id="@+id/OrderFruit_Weight"/>
+
+        <www.charkhtafi.com.charkhtafi.Utils.Views.CustomTextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1.2"
+            android:text="3000"
+            android:textSize="12sp"
+            android:textColor="#000"
+            android:gravity="center"
+            android:layout_marginLeft="1dp"
+            android:background="@drawable/shape_custom_total_edittext"
+            android:id="@+id/OrderFruit_Price"/>
+
+        <www.charkhtafi.com.charkhtafi.Utils.Views.CustomEdittext
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1.8"
+            android:hint="قیمت جدید"
+            android:inputType="numberDecimal"
+            android:gravity="center"
+            android:textSize="13sp"
+            android:layout_marginLeft="1dp"
+            android:background="@drawable/shape_custom_total_edittext"
+            android:id="@+id/OrderFruit_NewPrice"/>
+
+        <www.charkhtafi.com.charkhtafi.Utils.Views.CustomEdittext
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1.8"
+            android:textSize="13sp"
+            android:inputType="numberDecimal"
+            android:background="@drawable/shape_custom_total_edittext"
+            android:hint="وزن جدید"
+            android:layout_marginLeft="1dp"
+            android:gravity="center_horizontal"
+            android:id="@+id/OrderFruit_NewWeight"/>
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#F5F5F5"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="11dp"
+        android:layout_marginBottom="8dp"
+        android:layout_below="@+id/OrderFruit_View2"/>
+
+</RelativeLayout>

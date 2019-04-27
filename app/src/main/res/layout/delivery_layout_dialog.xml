@@ -1,0 +1,308 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#FFF">
+
+    <TextView
+        android:id="@+id/LayoutDialog_Title"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="#ECECEC"
+        android:fontFamily="@font/shabnam"
+        android:gravity="center"
+        android:textColor="#000"
+        android:textSize="16sp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_below="@+id/LayoutDialog_Title"
+        android:id="@+id/LayoutDialog_View1"
+        android:visibility="gone">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingTop="8dp"
+            android:visibility="gone"
+            android:paddingBottom="8dp"
+            android:id="@+id/LayoutDialog_IsPaid">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.15"
+                android:fontFamily="@font/shabnam"
+                android:gravity="right|center_vertical"
+                android:text="پرداخت نشده" />
+
+            <Switch
+                android:id="@+id/LayoutDialog_IsPaidSwitch"
+                android:layout_width="45dp"
+                android:layout_height="match_parent"
+                android:gravity="center" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.15"
+                android:fontFamily="@font/shabnam"
+                android:gravity="left|center_vertical"
+                android:paddingLeft="3dp"
+                android:text="پرداخت شده" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.3"
+                android:fontFamily="@font/shabnam"
+                android:gravity="center"
+                android:text="مبلغ بدهی"
+                android:textColor="#000" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="gone"
+            android:id="@+id/LayoutDialog_DebutPaymentType">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:orientation="horizontal"
+                >
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.15"
+                    android:fontFamily="@font/shabnam"
+                    android:gravity="right|center_vertical"
+                    android:text="نقدی" />
+
+                <Switch
+                    android:id="@+id/LayoutDialog_DebutPaymentTypeSwitch"
+                    android:layout_width="48dp"
+                    android:layout_height="match_parent"
+                    android:gravity="center" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.15"
+                    android:fontFamily="@font/shabnam"
+                    android:gravity="left|center_vertical"
+                    android:paddingLeft="3dp"
+                    android:text="POS" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.5"
+                    android:fontFamily="@font/shabnam"
+                    android:gravity="center"
+                    android:text="نوع پرداخت را مشخص کنید"
+                    android:textColor="#000" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/LayoutDialog_DebutPaymentType_TrackCode"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:background="@drawable/accept_model"
+                android:orientation="horizontal"
+                android:visibility="gone">
+
+                <EditText
+                    android:id="@+id/LayoutDialog_TrackingCode"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_margin="5dp"
+                    android:layout_weight="0.54"
+                    android:background="@drawable/accept_model"
+                    android:fontFamily="@font/shabnam"
+                    android:gravity="center"
+                    android:hint="کد پیگیری"
+                    android:inputType="number"
+                    android:padding="8dp"
+                    android:textColor="#000"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.5"
+                    android:fontFamily="@font/shabnam"
+                    android:gravity="center"
+                    android:text="کد پیگیری را وارد کنید."
+                    android:textColor="#000"
+                    android:textSize="12sp" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="آیا مطمئن هستید؟"
+            android:textSize="17sp"
+            android:textColor="#000"
+            android:fontFamily="@font/shabnam"
+            android:padding="20sp"
+            android:visibility="gone"
+            android:id="@+id/LayoutDialog_Question"/>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp">
+
+            <Button
+                android:id="@+id/LayoutDialog_DebutSend"
+                style="@style/Widget.AppCompat.Button.Borderless"
+                android:layout_width="110dp"
+                android:layout_height="30dp"
+                android:layout_marginLeft="12dp"
+                android:layout_marginTop="12dp"
+                android:background="#66BB6A"
+                android:drawableRight="@drawable/ic_check"
+                android:fontFamily="@font/shabnam"
+                android:gravity="center"
+                android:text="ارسال"
+                android:textColor="#FFF" />
+
+
+            <Button
+                android:id="@+id/LayoutDialog_ReflectedBack1"
+                style="@style/Widget.AppCompat.Button.Borderless"
+                android:layout_width="80dp"
+                android:layout_height="30dp"
+                android:layout_margin="12dp"
+                android:background="#EF5350"
+                android:fontFamily="@font/shabnam"
+                android:gravity="center"
+                android:text="بازگشت"
+                android:textColor="#FFF" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/LayoutDialog_StepOne"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/LayoutDialog_View1"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:padding="15dp"
+        android:visibility="visible">
+
+        <Button
+            android:id="@+id/LayoutDialog_DeliveredBtn"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:layout_width="110dp"
+            android:layout_height="35dp"
+            android:layout_margin="12dp"
+            android:background="#66BB6A"
+            android:drawableRight="@drawable/ic_check"
+            android:fontFamily="@font/shabnam"
+            android:gravity="center"
+            android:text="تحویل"
+            android:textColor="#FFF" />
+
+        <Button
+            android:id="@+id/LayoutDialog_ReflectionBtn"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:layout_width="120dp"
+            android:layout_height="35dp"
+            android:background="#EF5350"
+            android:drawableRight="@drawable/ic_redo"
+            android:fontFamily="@font/shabnam"
+            android:gravity="center"
+            android:text="مرجوع فاکتور"
+            android:textColor="#FFF" />
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/LayoutDialog_Reflected"
+        android:layout_width="match_parent"
+        android:layout_height="180dp"
+        android:layout_below="@+id/LayoutDialog_Title"
+        android:gravity="center_vertical"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/shabnam"
+            android:gravity="center"
+            android:padding="7sp"
+            android:text="دلیل مرجوع شدن فاکتور"
+            android:textColor="#575757"
+            android:textSize="16sp" />
+
+
+        <EditText
+            android:id="@+id/LayoutDialog_ReflectedDesc"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="3dp"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/accept_model"
+            android:fontFamily="@font/shabnam"
+            android:hint="دلیل مشتری"
+            android:inputType="textMultiLine"
+            android:padding="7sp"
+            android:textSize="15sp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp">
+
+            <Button
+                android:id="@+id/LayoutDialog_ReflectedSend"
+                style="@style/Widget.AppCompat.Button.Borderless"
+                android:layout_width="110dp"
+                android:layout_height="30dp"
+                android:layout_marginLeft="12dp"
+                android:layout_marginTop="12dp"
+                android:background="#66BB6A"
+                android:drawableRight="@drawable/ic_check"
+                android:fontFamily="@font/shabnam"
+                android:gravity="center"
+                android:text="ارسال"
+                android:textColor="#FFF" />
+
+
+            <Button
+                android:id="@+id/LayoutDialog_ReflectedBack"
+                style="@style/Widget.AppCompat.Button.Borderless"
+                android:layout_width="80dp"
+                android:layout_height="30dp"
+                android:layout_margin="12dp"
+                android:background="#EF5350"
+                android:fontFamily="@font/shabnam"
+                android:gravity="center"
+                android:text="بازگشت"
+                android:textColor="#FFF" />
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+</RelativeLayout>
