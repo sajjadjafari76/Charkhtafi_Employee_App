@@ -30,17 +30,35 @@
                     android:textColor="#000"
                     android:textSize="14sp" />
 
-                <ImageView
-                    android:id="@+id/CustomDelivery_Ok"
+                <RelativeLayout
+                    android:id="@+id/Order_ButtonView"
                     android:layout_width="33dp"
                     android:layout_height="28dp"
                     android:layout_alignParentLeft="true"
                     android:layout_centerVertical="true"
-                    android:layout_marginLeft="8dp"
-                    android:padding="2dp"
-                    android:background="@drawable/accept_model"
-                    android:contentDescription="@string/app_name"
-                    app:srcCompat="@drawable/ic_check_1" />
+                    android:layout_marginLeft="8dp">
+
+                    <ImageView
+                        android:id="@+id/CustomDelivery_Ok"
+                        android:layout_width="33dp"
+                        android:layout_height="28dp"
+                        android:background="@drawable/accept_model"
+                        android:contentDescription="@string/app_name"
+                        android:padding="2dp"
+                        app:srcCompat="@drawable/ic_check_1" />
+
+                    <ProgressBar
+                        android:id="@+id/Delivery_Progress_Ok"
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:layout_centerInParent="true"
+                        android:elevation="8dp"
+                        android:indeterminate="true"
+                        android:indeterminateTint="#000"
+                        android:visibility="gone" />
+
+                </RelativeLayout>
+
 
                 <ImageView
                     android:id="@+id/CustomDelivery_PreOrderImage"
@@ -48,8 +66,8 @@
                     android:layout_height="match_parent"
                     android:layout_alignParentRight="true"
                     android:layout_marginLeft="4dp"
-                    android:padding="5dp"
                     android:contentDescription="@string/app_name"
+                    android:padding="5dp"
                     app:srcCompat="@drawable/preorder" />
 
             </RelativeLayout>
@@ -72,7 +90,7 @@
                 android:layout_weight="1"
                 android:drawableRight="@drawable/ic_user_silhouette"
                 android:drawablePadding="8dp"
-                android:gravity="center_vertical"
+                android:gravity="center_vertical|right"
                 android:paddingLeft="3dp"
                 android:paddingTop="5dp"
                 android:paddingRight="3dp"
@@ -142,7 +160,6 @@
 
 
         </LinearLayout>
-
 
 
         <LinearLayout

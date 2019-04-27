@@ -12,6 +12,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -100,8 +101,6 @@ public class OrderAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
                 ((myCustomViewHolder) holder).PreOrder.setVisibility(View.GONE);
             }
 
-            Log.e("logforcheck", data.get(position).getDescription() + " | " + position);
-
             if (data.get(position).getDescription() != null) {
                 ((myCustomViewHolder) holder).Description.setText(" توضیحات : ".concat(data.get(position).getDescription()));
             } else {
@@ -146,7 +145,6 @@ public class OrderAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
                                         data.get(position).getFruitModel().get(i).getWeight()
                         );
 
-                        Log.e("dfhdf45454dghdhf", Integer.parseInt(object.getString("NewPrice")) + " | " + Float.parseFloat(object.getString("NewWeight")));
                         sum = sum + (Integer.parseInt(object.getString("NewPrice")) * Float.parseFloat(object.getString("NewWeight")));
 
 
@@ -177,11 +175,15 @@ public class OrderAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
         });
 
         ((myCustomViewHolder) holder).No.setOnClickListener(v -> {
-            sendActivatedFactor(data.get(position).getId(), "false", data.get(position).getNameUser(), ((myCustomViewHolder) holder), position);
+            sendActivatedFactor(data.get(position).getId(), "false", ((myCustomViewHolder) holder), position, 1);
+            ((myCustomViewHolder) holder).Progress_No.setVisibility(View.VISIBLE);
+            ((myCustomViewHolder) holder).No.setText(" ");
         });
 
         ((myCustomViewHolder) holder).Yes.setOnClickListener(v -> {
-            sendActivatedFactor(data.get(position).getId(), "true", data.get(position).getNameUser(), ((myCustomViewHolder) holder), position);
+            sendActivatedFactor(data.get(position).getId(), "true", ((myCustomViewHolder) holder), position, 2);
+            ((myCustomViewHolder) holder).Progress_Yes.setVisibility(View.VISIBLE);
+            ((myCustomViewHolder) holder).Yes.setText(" ");
         });
 
 
@@ -210,12 +212,12 @@ public class OrderAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
         private TextView Yes, No;
         private RelativeLayout View1, Active;
         private ImageView PreOrder;
+        private ProgressBar Progress_Yes, Progress_No;
 
         public myCustomViewHolder(View itemView) {
             super(itemView);
 
             recyclerView = itemView.findViewById(R.id.CustomOrderRecycler);
-//            CustomOrder_Add = itemView.findViewById(R.id.CustomOrder_Send);
             Send = itemView.findViewById(R.id.CustomOrder_Send);
             Description = itemView.findViewById(R.id.CustomOrderDescription);
             CustomOrder_Factor = itemView.findViewById(R.id.CustomOrder_Factor);
@@ -224,6 +226,8 @@ public class OrderAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
             View1 = itemView.findViewById(R.id.CustomOrder_View22);
             Active = itemView.findViewById(R.id.CustomOrder_Active);
             PreOrder = itemView.findViewById(R.id.CustomOrder_PreOrderImage);
+            Progress_Yes = itemView.findViewById(R.id.Order_Progress_Yes);
+            Progress_No = itemView.findViewById(R.id.Order_Progress_No);
         }
     }
 
@@ -256,36 +260,19 @@ public class OrderAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
 
             CardView Add = progress.findViewById(R.id.CustomAddFruit_Add);
             if (Add != null) {
-                Add.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
+                Add.setOnClickListener(v -> {
 
-                        OrderFruitModel model1 = new OrderFruitModel();
-                        model1.setImage("https://onehdwallpaper.com/wp-content/uploads/2016/05/Full-HD-Banana-Fruit-HD-Photos.jpg");
-                        model1.setPrice("4000");
-                        model1.setTotalWeight("3");
-                        model1.setName("موز");
-                        model1.setFruitId("125874");
-                        model1.setWeight("3");
+                    OrderFruitModel model1 = new OrderFruitModel();
+                    model1.setImage("https://onehdwallpaper.com/wp-content/uploads/2016/05/Full-HD-Banana-Fruit-HD-Photos.jpg");
+                    model1.setPrice("4000");
+                    model1.setTotalWeight("3");
+                    model1.setName("موز");
+                    model1.setFruitId("125874");
+                    model1.setWeight("3");
 
-                        data.get(position).getFruitModel().add(model1);
-                        adapter.notifyDataSetChanged();
-
-//                        Log.e("data", data1.toString());
-//                        data1.add(position,model1);
-//                        adapter.notifyDataSetChanged();
-//                        Log.e("data",data1.get(position).getName());
-
-//                        data1.set(position,model1);
-//                        adapter.notifyDataSetChanged();
-//                        adapter.addAt(position,model1);
-//                        adapter.addAt(model1);
-//                        data1.add(model);
-//                        adapter.notifyItemInserted(position);
-//                        adapter.notifyItemChanged(position);
-//                        adapter.notifyDataSetChanged();
-                        progress.dismiss();
-                    }
+                    data.get(position).getFruitModel().add(model1);
+                    adapter.notifyDataSetChanged();
+                    progress.dismiss();
                 });
             }
 
@@ -331,7 +318,7 @@ public class OrderAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
     }
 
 
-    private void sendActivatedFactor(String FactorId, String Status, String Name, myCustomViewHolder holder, int position) {
+    private void sendActivatedFactor(String FactorId, String Status, myCustomViewHolder holder, int position, int state) {
 
         try {
             Map<String, String> params = new HashMap<>();
@@ -339,7 +326,9 @@ public class OrderAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
             params.put("userid", Tools.getInstance(context).read("UserId", ""));
             params.put("rid", FactorId);
             params.put("status", Status);
-            params.put("uname", Name);
+            params.put("uname", Tools.getInstance(context).read("UserName",""));
+
+            Log.e("ssddff", params.toString() + " |");
 
             StringRequest loginRequest = new StringRequest(params, 0, new StringRequest.ResponseAction() {
                 @Override
@@ -358,6 +347,15 @@ public class OrderAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
 
                                     holder.View1.setVisibility(View.VISIBLE);
                                     holder.Active.setVisibility(View.GONE);
+                                    data.get(position).setActive(true);
+
+                                    if (state == 1) { // No -> Reject
+                                        holder.Progress_Yes.setVisibility(View.GONE);
+                                        holder.No.setText("عدم پذیرش");
+                                    }else if (state == 2) { // Yes -> Accepted
+                                        holder.Progress_No.setVisibility(View.GONE);
+                                        holder.No.setText("پذیرش");
+                                    }
 
                                 } else {
                                     data.remove(position);

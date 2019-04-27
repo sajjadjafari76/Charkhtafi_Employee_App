@@ -10,6 +10,8 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
 
@@ -84,11 +86,10 @@ public class AllDeliveryAdapter extends RecyclerView.Adapter<AllDeliveryAdapter.
             @Override
             public void onClick(View v) {
 
-//                Functions.getInstance(context).SendToDelivery(model.getId(),
-//                        AllDeliveryAdapter.this, alldata, OrderId, total);
+                holder.Progress.setVisibility(View.VISIBLE);
+                holder.Image.setVisibility(View.GONE);
 
-                updateFactor(jsonObject, position);
-
+                updateFactor(jsonObject, position, holder);
 
             }
         });
@@ -118,11 +119,15 @@ public class AllDeliveryAdapter extends RecyclerView.Adapter<AllDeliveryAdapter.
 
         private CustomTextView  Name;
         private RelativeLayout CustomAllDeliveryDone;
+        private ProgressBar Progress;
+        private ImageView Image;
 
         myViewHolder(View itemView) {
             super(itemView);
             Name = itemView.findViewById(R.id.CustomAllDeliveryName);
             CustomAllDeliveryDone = itemView.findViewById(R.id.CustomAllDeliveryDone);
+            Progress = itemView.findViewById(R.id.CustomAllDeliveryName_Progress);
+            Image = itemView.findViewById(R.id.CustomAllDeliveryName_Image);
         }
 
     }
@@ -185,7 +190,7 @@ public class AllDeliveryAdapter extends RecyclerView.Adapter<AllDeliveryAdapter.
 //    }
 
 
-    public void updateFactor(JSONObject object, int bikePosition) {
+    public void updateFactor(JSONObject object, int bikePosition, myViewHolder holder) {
 
 //        Log.e("dateee", data.size() + " | " + bikePosition + " | " + myPosition);
 
@@ -211,6 +216,8 @@ public class AllDeliveryAdapter extends RecyclerView.Adapter<AllDeliveryAdapter.
                                 Toast.makeText(context, object.getString("msg"), Toast.LENGTH_SHORT).show();
                                 dialog.dismiss();
                                 removeAt(myPosition);
+                                holder.Progress.setVisibility(View.VISIBLE);
+                                holder.Image.setVisibility(View.GONE);
 
                             } else {
                                 Toast.makeText(context, object.getString("msg"), Toast.LENGTH_SHORT).show();

@@ -1,7 +1,6 @@
 package www.charkhtafi.com.charkhtafi.Fragment;
 
 
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.widget.SwipeRefreshLayout;
@@ -17,7 +16,6 @@ import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import com.android.volley.VolleyError;
-import com.koushikdutta.async.http.body.JSONObjectBody;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -26,20 +24,14 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.concurrent.TimeUnit;
 
 import www.charkhtafi.com.charkhtafi.Adapter.DeliveryAdapter;
-import www.charkhtafi.com.charkhtafi.Adapter.EditPriceAdapter;
 import www.charkhtafi.com.charkhtafi.AppController.AppController;
-import www.charkhtafi.com.charkhtafi.Functions;
 import www.charkhtafi.com.charkhtafi.Model.DeliveryModel;
-import www.charkhtafi.com.charkhtafi.Model.EditPriceModel;
 import www.charkhtafi.com.charkhtafi.Model.OrderFruitModel;
 import www.charkhtafi.com.charkhtafi.Network.StringRequest;
 import www.charkhtafi.com.charkhtafi.R;
 import www.charkhtafi.com.charkhtafi.Utils.Tools;
-import www.charkhtafi.com.charkhtafi.Utils.Views.CustomTextView;
-
 
 public class Delivery extends Fragment {
 
@@ -113,13 +105,13 @@ public class Delivery extends Fragment {
     }
 
 
-
     public void getBikeData() {
 
         try {
             Map<String, String> params = new HashMap<>();
             params.put("OPR", "GETBIKEREFRENCEDRECIEPT");
             params.put("userid", Tools.getInstance(getContext()).read("UserId", ""));
+            Log.e("dfd",Tools.getInstance(getContext()).read("UserId", "") + " |" );
 
             StringRequest loginRequest = new StringRequest(params, 0, new StringRequest.ResponseAction() {
                 @Override

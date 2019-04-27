@@ -471,7 +471,7 @@ public class Functions {
                                     model.setId(object.getString("id"));
                                     model.setDescription(object.getString("description"));
                                     model.setTotalPrice(object.getString("total"));
-                                    model.setNameUser("نام : " + object.getJSONObject("user").getString("name"));
+//                                    model.setNameUser("نام : " + object.getJSONObject("user").getString("name"));
                                     model.setDeliveryFree(object.getJSONObject("shipping").getString("free"));
                                     if (Integer.parseInt(object.getString("total")) >= Integer.parseInt(object.getJSONObject("shipping").getString("free"))) {
                                         model.setDeliveryPrice("0");

@@ -38,8 +38,8 @@
                     android:layout_height="match_parent"
                     android:layout_alignParentRight="true"
                     android:layout_marginLeft="4dp"
-                    android:padding="5dp"
                     android:contentDescription="@string/app_name"
+                    android:padding="5dp"
                     app:srcCompat="@drawable/preorder" />
 
             </RelativeLayout>
@@ -135,28 +135,67 @@
                 android:textColor="#000" />
 
 
-            <Button
-                android:id="@+id/Order_Yes"
+            <RelativeLayout
                 android:layout_width="100dp"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/Order_Question"
                 android:layout_marginTop="10dp"
-                android:backgroundTint="#00FF00"
-                android:fontFamily="@font/shabnam"
-                android:text="پذیرش"
-                android:textColor="#FFF" />
+                android:layout_below="@+id/Order_Question"
+                android:id="@+id/Order_ButtonView">
 
-            <Button
-                android:id="@+id/Order_No"
-                android:layout_width="110dp"
+
+                <Button
+                    android:id="@+id/Order_Yes"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="#00FF00"
+                    android:fontFamily="@font/shabnam"
+                    android:text="پذیرش"
+                    android:textColor="#FFF" />
+
+                <ProgressBar
+                    android:id="@+id/Order_Progress_Yes"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_centerInParent="true"
+                    android:elevation="8dp"
+                    android:indeterminate="true"
+                    android:indeterminateTint="#FFF"
+                    android:visibility="gone" />
+
+            </RelativeLayout>
+
+
+            <RelativeLayout
+                android:layout_width="100dp"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/Order_Question"
                 android:layout_marginTop="10dp"
-                android:layout_toLeftOf="@+id/Order_Yes"
-                android:backgroundTint="#FF0000"
-                android:fontFamily="@font/shabnam"
-                android:text="عدم پذیرش"
-                android:textColor="#FFF" />
+                android:layout_below="@+id/Order_Question"
+                android:id="@+id/Order_ButtonViewNo"
+                android:layout_toLeftOf="@+id/Order_ButtonView">
+
+
+                <Button
+                    android:id="@+id/Order_No"
+                    android:layout_width="110dp"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="#FF0000"
+                    android:fontFamily="@font/shabnam"
+                    android:text="عدم پذیرش"
+                    android:textColor="#FFF" />
+
+                <ProgressBar
+                    android:id="@+id/Order_Progress_No"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_centerInParent="true"
+                    android:elevation="8dp"
+                    android:indeterminate="true"
+                    android:indeterminateTint="#FFF"
+                    android:visibility="gone" />
+
+            </RelativeLayout>
+
+
 
 
         </RelativeLayout>

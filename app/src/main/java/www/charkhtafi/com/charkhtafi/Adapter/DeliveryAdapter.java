@@ -242,45 +242,10 @@ public class DeliveryAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
             });
             //** Reflected **//
 
-
-//            Switch mSwitch = alertDialog.findViewById(R.id.LayoutDialog_Switch);
-//            LinearLayout onlineOrOfflineWithPOS = alertDialog.findViewById(R.id.LayoutDialog_OnlineOrOfflineWithPOS);
-
-
             TextView title = alertDialog.findViewById(R.id.LayoutDialog_Title);
 
 
             title.setText("فاکتور " + model.getId() + " - " + model.getName());
-
-//            mSwitch.setOnCheckedChangeListener((buttonView, isChecked) -> {
-//                if (isChecked) {
-//                    onlineOrOfflineWithPOS.setVisibility(View.VISIBLE);
-//
-//                } else {
-//                    onlineOrOfflineWithPOS.setVisibility(View.GONE);
-//
-//                }
-//            });
-
-
-//            if (model.getPayment().equals("0")) { // online
-//
-//                if (model.getDebtor().equals("0")) { // without debtor
-//
-//
-//                } else {
-//
-//
-//                }
-//
-//            } else {
-//
-//            }
-
-
-//            sendFacorToServer(model.getId());
-
-//            sendFactorToServer(model.getId(), model.getPayment(),followCode.getText().toString(), model.getDebtor());
 
         });
 

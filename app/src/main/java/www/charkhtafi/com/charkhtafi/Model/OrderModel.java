@@ -10,7 +10,7 @@ public class OrderModel {
 
     private String id;
     private String Description;
-    private String NameUser;
+//    private String NameUser;
     private String TotalPrice;
     private String DeliveryPrice;
     private String Off;
@@ -45,13 +45,13 @@ public class OrderModel {
         Description = description;
     }
 
-    public String getNameUser() {
-        return NameUser;
-    }
+//    public String getNameUser() {
+//        return NameUser;
+//    }
 
-    public void setNameUser(String nameUser) {
-        NameUser = nameUser;
-    }
+//    public void setNameUser(String nameUser) {
+//        NameUser = nameUser;
+//    }
 
     public List<AllDeliveryModel> getAllDelivery() {
         return allDelivery;
