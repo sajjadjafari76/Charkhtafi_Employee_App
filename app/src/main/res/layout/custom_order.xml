@@ -23,7 +23,7 @@
                 android:layout_height="40dp"
                 android:background="#F4F4F4">
 
-                <www.charkhtafi.com.charkhtafi.Utils.Views.CustomTextView
+                <ir.stit.ir.charkhtafi.Utils.Views.CustomTextView
                     android:id="@+id/CustomOrder_Factor"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
@@ -68,7 +68,7 @@
 
             </android.support.v7.widget.CardView>
 
-            <www.charkhtafi.com.charkhtafi.Utils.Views.CustomTextView
+            <ir.stit.ir.charkhtafi.Utils.Views.CustomTextView
                 android:id="@+id/CustomOrderDescription"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -101,7 +101,7 @@
                 app:cardCornerRadius="3dp"
                 app:cardElevation="2dp">
 
-                <www.charkhtafi.com.charkhtafi.Utils.Views.CustomTextView
+                <ir.stit.ir.charkhtafi.Utils.Views.CustomTextView
                     android:id="@+id/CustomOrder_Send"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
@@ -127,7 +127,7 @@
             android:visibility="visible">
 
 
-            <www.charkhtafi.com.charkhtafi.Utils.Views.CustomTextView
+            <ir.stit.ir.charkhtafi.Utils.Views.CustomTextView
                 android:id="@+id/Order_Question"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

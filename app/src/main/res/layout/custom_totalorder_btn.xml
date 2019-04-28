@@ -28,7 +28,7 @@
             android:focusable="true"
             android:foreground="?android:attr/selectableItemBackground">
 
-            <www.charkhtafi.com.charkhtafi.Utils.Views.CustomTextView
+            <ir.stit.ir.charkhtafi.Utils.Views.CustomTextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:background="#009436"

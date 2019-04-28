@@ -48,7 +48,7 @@
                         android:orientation="horizontal">
 
 
-                    <www.charkhtafi.com.charkhtafi.Utils.Views.CustomTextView
+                    <ir.stit.ir.charkhtafi.Utils.Views.CustomTextView
                         android:layout_width="match_parent"
                         android:layout_height="40dp"
                         android:gravity="center_vertical"
@@ -83,7 +83,7 @@
                         android:id="@+id/CustomTotalOrder_View3"
                         android:layout_marginLeft="3dp">
 
-                        <www.charkhtafi.com.charkhtafi.Utils.Views.CustomTextView
+                        <ir.stit.ir.charkhtafi.Utils.Views.CustomTextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:id="@+id/CustomEditPrice_Price"
@@ -133,7 +133,7 @@
                     android:layout_height="wrap_content">
 
 
-                    <www.charkhtafi.com.charkhtafi.Utils.Views.CustomTextView
+                    <ir.stit.ir.charkhtafi.Utils.Views.CustomTextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="لطفا قیمت جدید را وارد کنید..."
@@ -154,7 +154,7 @@
                         android:layout_marginTop="7dp"
                         android:paddingBottom="3dp">
 
-                        <www.charkhtafi.com.charkhtafi.Utils.Views.CustomEdittext
+                        <ir.stit.ir.charkhtafi.Utils.Views.CustomEdittext
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_toLeftOf="@+id/CustomEditPrice_ViewCheck"

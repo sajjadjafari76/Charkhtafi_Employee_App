@@ -21,7 +21,7 @@
                 android:layout_height="40dp"
                 android:background="#F4F4F4">
 
-                <www.charkhtafi.com.charkhtafi.Utils.Views.CustomTextView
+                <ir.stit.ir.charkhtafi.Utils.Views.CustomTextView
                     android:id="@+id/CustomOrder_Factor"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
@@ -83,7 +83,7 @@
             android:padding="3dp"
             android:weightSum="2">
 
-            <www.charkhtafi.com.charkhtafi.Utils.Views.CustomTextView
+            <ir.stit.ir.charkhtafi.Utils.Views.CustomTextView
                 android:id="@+id/CustomDelivery_Name"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -99,7 +99,7 @@
                 android:textColor="#000" />
 
 
-            <www.charkhtafi.com.charkhtafi.Utils.Views.CustomTextView
+            <ir.stit.ir.charkhtafi.Utils.Views.CustomTextView
                 android:id="@+id/CustomDelivery_Total"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -127,7 +127,7 @@
             android:padding="3dp"
             android:weightSum="2">
 
-            <www.charkhtafi.com.charkhtafi.Utils.Views.CustomTextView
+            <ir.stit.ir.charkhtafi.Utils.Views.CustomTextView
                 android:id="@+id/CustomDelivery_Debtor"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -143,7 +143,7 @@
                 android:textColor="#000" />
 
 
-            <www.charkhtafi.com.charkhtafi.Utils.Views.CustomTextView
+            <ir.stit.ir.charkhtafi.Utils.Views.CustomTextView
                 android:id="@+id/CustomDelivery_Time"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -171,7 +171,7 @@
             android:padding="3dp"
             android:weightSum="2">
 
-            <www.charkhtafi.com.charkhtafi.Utils.Views.CustomTextView
+            <ir.stit.ir.charkhtafi.Utils.Views.CustomTextView
                 android:id="@+id/CustomDelivery_Payment"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -187,7 +187,7 @@
                 android:textColor="#000" />
 
 
-            <www.charkhtafi.com.charkhtafi.Utils.Views.CustomTextView
+            <ir.stit.ir.charkhtafi.Utils.Views.CustomTextView
                 android:id="@+id/CustomDelivery_Bike"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -206,7 +206,7 @@
         </LinearLayout>
 
 
-        <www.charkhtafi.com.charkhtafi.Utils.Views.CustomTextView
+        <ir.stit.ir.charkhtafi.Utils.Views.CustomTextView
             android:id="@+id/CustomDelivery_Address"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -255,7 +255,7 @@
                     android:weightSum="3">
 
 
-                    <www.charkhtafi.com.charkhtafi.Utils.Views.CustomTextView
+                    <ir.stit.ir.charkhtafi.Utils.Views.CustomTextView
                         android:id="@+id/CustomEditPrice_Name"
                         android:layout_width="match_parent"
                         android:layout_height="40dp"

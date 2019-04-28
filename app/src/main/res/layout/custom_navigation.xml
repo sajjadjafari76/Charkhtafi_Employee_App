@@ -20,7 +20,7 @@
         android:layout_centerVertical="true"
         android:id="@+id/CustomNavigationIcon"/>
 
-    <www.charkhtafi.com.charkhtafi.Utils.Views.CustomTextView
+    <ir.stit.ir.charkhtafi.Utils.Views.CustomTextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerVertical="true"

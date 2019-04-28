@@ -21,7 +21,7 @@
                 android:layout_toRightOf="@id/CustomOrderAddFruit_Weight"
                 android:layout_alignBottom="@+id/CustomOrderAddFruit_Weight"/>
 
-            <www.charkhtafi.com.charkhtafi.Utils.Views.CustomEdittext
+            <ir.stit.ir.charkhtafi.Utils.Views.CustomEdittext
                 android:layout_width="120dp"
                 android:layout_height="wrap_content"
                 android:id="@+id/CustomOrderAddFruit_Weight"
@@ -44,7 +44,7 @@
             android:layout_below="@+id/CustomOrder_View2"
             android:layout_alignParentLeft="true">
 
-            <www.charkhtafi.com.charkhtafi.Utils.Views.CustomTextView
+            <ir.stit.ir.charkhtafi.Utils.Views.CustomTextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:background="#FF1488D5"

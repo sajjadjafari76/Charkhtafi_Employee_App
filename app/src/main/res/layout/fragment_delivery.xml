@@ -5,7 +5,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="#FFF"
     android:layoutDirection="rtl"
-    tools:context="www.charkhtafi.com.charkhtafi.Fragment.Delivery">
+    tools:context="ir.stit.ir.charkhtafi.Fragment.Delivery">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -26,7 +26,7 @@
             app:indicatorName="BallClipRotatePulseIndicator"
             app:indicatorColor="#c21e1e"/>
 
-        <www.charkhtafi.com.charkhtafi.Utils.Views.CustomTextView
+        <ir.stit.ir.charkhtafi.Utils.Views.CustomTextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="لطفا صبر کنید!"
@@ -91,7 +91,7 @@
                     app:srcCompat="@drawable/wifi_off"
                     android:layout_marginBottom="12dp"/>
 
-                <www.charkhtafi.com.charkhtafi.Utils.Views.CustomTextView
+                <ir.stit.ir.charkhtafi.Utils.Views.CustomTextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="شما به اینترنت متصل نمی باشید!"

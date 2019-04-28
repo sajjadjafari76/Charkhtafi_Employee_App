@@ -27,7 +27,7 @@
                 android:id="@+id/CustomTotalOrder_Image"
                 android:src="@drawable/pineapple"/>
 
-            <www.charkhtafi.com.charkhtafi.Utils.Views.CustomTextView
+            <ir.stit.ir.charkhtafi.Utils.Views.CustomTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_toLeftOf="@+id/CustomTotalOrder_Image"
@@ -38,7 +38,7 @@
                 android:textSize="17sp"
                 android:id="@+id/CustomTotalOrder_Name"/>
 
-            <www.charkhtafi.com.charkhtafi.Utils.Views.CustomTextView
+            <ir.stit.ir.charkhtafi.Utils.Views.CustomTextView
                 android:layout_width="95dp"
                 android:layout_height="33dp"
                 android:layout_alignParentLeft="true"
@@ -58,7 +58,7 @@
             android:background="#FAFAFA"
             android:layout_below="@+id/CustomTotalOrder_View1">
 
-            <www.charkhtafi.com.charkhtafi.Utils.Views.CustomTextView
+            <ir.stit.ir.charkhtafi.Utils.Views.CustomTextView
                 android:layout_width="40dp"
                 android:layout_height="match_parent"
                 android:text="قیمت سایت"
@@ -68,7 +68,7 @@
                 android:layout_alignParentRight="true"
                 android:id="@+id/CustomTotalOrder_SitePrice"/>
 
-            <www.charkhtafi.com.charkhtafi.Utils.Views.CustomTextView
+            <ir.stit.ir.charkhtafi.Utils.Views.CustomTextView
                 android:layout_width="48dp"
                 android:layout_height="match_parent"
                 android:text="35.000"
@@ -79,7 +79,7 @@
                 android:id="@+id/CustomTotalOrder_SitePriceNumber"/>
 
 
-            <www.charkhtafi.com.charkhtafi.Utils.Views.CustomTextView
+            <ir.stit.ir.charkhtafi.Utils.Views.CustomTextView
                 android:layout_width="40dp"
                 android:layout_height="match_parent"
                 android:text="تومان"
@@ -101,7 +101,7 @@
                 android:layout_marginRight="3dp"
                 android:layout_marginLeft="3dp"/>
 
-            <www.charkhtafi.com.charkhtafi.Utils.Views.CustomTextView
+            <ir.stit.ir.charkhtafi.Utils.Views.CustomTextView
                 android:layout_width="40dp"
                 android:layout_height="match_parent"
                 android:text="درجه دو"
@@ -125,7 +125,7 @@
                 android:layout_marginLeft="3dp"/>
 
 
-            <www.charkhtafi.com.charkhtafi.Utils.Views.CustomEdittext
+            <ir.stit.ir.charkhtafi.Utils.Views.CustomEdittext
                 android:layout_width="wrap_content"
                 android:layout_height="35dp"
                 android:layout_centerVertical="true"

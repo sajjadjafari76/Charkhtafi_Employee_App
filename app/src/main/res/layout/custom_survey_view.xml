@@ -9,7 +9,7 @@
         android:layout_width="match_parent"
         android:layout_height="50dp">
 
-        <www.charkhtafi.com.charkhtafi.Utils.Views.CustomTextView
+        <ir.stit.ir.charkhtafi.Utils.Views.CustomTextView
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:padding="8dp"
@@ -25,7 +25,7 @@
             android:layout_alignParentLeft="true"
             android:gravity="center_vertical">
 
-            <www.charkhtafi.com.charkhtafi.Utils.Views.CustomTextView
+            <ir.stit.ir.charkhtafi.Utils.Views.CustomTextView
                 android:layout_width="25dp"
                 android:layout_height="match_parent"
                 android:gravity="center"

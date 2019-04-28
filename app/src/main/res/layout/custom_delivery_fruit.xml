@@ -22,7 +22,7 @@
             android:id="@+id/DeliveryFruit_Image"
             android:src="@drawable/pineapple"/>
 
-        <www.charkhtafi.com.charkhtafi.Utils.Views.CustomTextView
+        <ir.stit.ir.charkhtafi.Utils.Views.CustomTextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_toLeftOf="@+id/DeliveryFruit_Image"
@@ -33,7 +33,7 @@
             android:textSize="14sp"
             android:id="@+id/DeliveryFruit_Name"/>
 
-        <www.charkhtafi.com.charkhtafi.Utils.Views.CustomTextView
+        <ir.stit.ir.charkhtafi.Utils.Views.CustomTextView
             android:layout_width="75dp"
             android:layout_height="23dp"
             android:layout_marginLeft="5dp"
@@ -48,7 +48,7 @@
             android:layout_toRightOf="@+id/DeliveryFruit_TotalPrice"
             android:id="@+id/DeliveryFruit_TotalWeight"/>
 
-        <www.charkhtafi.com.charkhtafi.Utils.Views.CustomTextView
+        <ir.stit.ir.charkhtafi.Utils.Views.CustomTextView
             android:layout_width="wrap_content"
             android:layout_height="23dp"
             android:layout_alignParentLeft="true"

@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">CharkhTafi</string>
+    <string name="app_name">Charkhtafi-Employee</string>
 
 
     /// Login page
@@ -11,7 +11,6 @@
     <string name="MobileNullError">شماره موبایل نمیتواند خالی باشد!</string>
     <string name="InternetIsDisconnect">دسترسی به اینترنت موجود نیست!</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
 

@@ -10,7 +10,7 @@
     android:orientation="vertical"
     android:weightSum="10"
     android:gravity="center"
-    tools:context="www.charkhtafi.com.charkhtafi.Login">
+    tools:context="ir.stit.ir.charkhtafi.Login">
 
         <ImageView
             android:layout_width="250dp"
@@ -95,7 +95,7 @@
                 android:layout_marginLeft="30dp"
                 android:layout_marginRight="30dp">
 
-                <www.charkhtafi.com.charkhtafi.Utils.Views.CustomTextView
+                <ir.stit.ir.charkhtafi.Utils.Views.CustomTextView
                     android:id="@+id/Login_Btn"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"

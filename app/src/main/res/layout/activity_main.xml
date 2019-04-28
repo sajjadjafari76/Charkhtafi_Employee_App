@@ -6,7 +6,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layoutDirection="rtl"
     android:id="@+id/MainActivityOrderNavigation"
-    tools:context="www.charkhtafi.com.charkhtafi.MainActivity">
+    tools:context="ir.stit.ir.charkhtafi.MainActivity">
 
 
     <RelativeLayout
@@ -27,7 +27,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
-                <www.charkhtafi.com.charkhtafi.Utils.Views.CustomTextView
+                <ir.stit.ir.charkhtafi.Utils.Views.CustomTextView
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:gravity="center"

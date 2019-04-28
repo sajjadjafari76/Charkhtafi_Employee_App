@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:background="#FFF"
     android:layoutDirection="rtl"
-    tools:context="www.charkhtafi.com.charkhtafi.Fragment.Order">
+    tools:context="ir.stit.ir.charkhtafi.Fragment.Order">
 
     <android.support.v4.widget.SwipeRefreshLayout
         android:id="@+id/OrderRefresh"
@@ -41,7 +41,7 @@
                     app:indicatorColor="#c21e1e"
                     app:indicatorName="BallClipRotatePulseIndicator" />
 
-                <www.charkhtafi.com.charkhtafi.Utils.Views.CustomTextView
+                <ir.stit.ir.charkhtafi.Utils.Views.CustomTextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center"
@@ -89,7 +89,7 @@
                     android:layout_marginBottom="12dp"
                     app:srcCompat="@drawable/wifi_off" />
 
-                <www.charkhtafi.com.charkhtafi.Utils.Views.CustomTextView
+                <ir.stit.ir.charkhtafi.Utils.Views.CustomTextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center"

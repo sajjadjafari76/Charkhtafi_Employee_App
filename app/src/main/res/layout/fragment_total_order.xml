@@ -8,7 +8,7 @@
     android:layoutDirection="rtl"
     android:background="#FFF"
     android:id="@+id/TotalOrderRefresh"
-    tools:context="www.charkhtafi.com.charkhtafi.Fragment.TotalOrder">
+    tools:context="ir.stit.ir.charkhtafi.Fragment.TotalOrder">
 
 
     <android.support.v4.widget.SwipeRefreshLayout
@@ -57,7 +57,7 @@
                     app:indicatorColor="#c21e1e"
                     app:indicatorName="BallClipRotatePulseIndicator" />
 
-                <www.charkhtafi.com.charkhtafi.Utils.Views.CustomTextView
+                <ir.stit.ir.charkhtafi.Utils.Views.CustomTextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center"
@@ -80,7 +80,7 @@
                     app:srcCompat="@drawable/wifi_off"
                     android:layout_marginBottom="12dp"/>
 
-                <www.charkhtafi.com.charkhtafi.Utils.Views.CustomTextView
+                <ir.stit.ir.charkhtafi.Utils.Views.CustomTextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="شما به اینترنت متصل نمی باشید!"
