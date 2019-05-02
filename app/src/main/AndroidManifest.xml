@@ -31,6 +31,14 @@
         </activity>
 
         <meta-data android:name="co.ronash.pushe.token" android:value="PUSHE_474039343941"/>
+
+        <service
+            android:name=".MyPushListener"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="co.ronash.pushe.RECEIVE" />
+            </intent-filter>
+        </service>
     </application>
 
 </manifest>

@@ -483,9 +483,9 @@ public class Order extends Fragment {
                                     orderModel.setId(FactorObject.getString("rid"));
                                     orderModel.setTotalPrice(FactorObject.getString("sumcast"));
                                     orderModel.setDeliveryPrice(FactorObject.getString("bikeprice"));
-//                                    orderModel.setNameUser(FactorObject.getString("customername"));
                                     orderModel.setActive(FactorObject.getBoolean("isAccepted"));
                                     orderModel.setPreOrder(FactorObject.getBoolean("orderType"));
+                                    orderModel.setDescription(FactorObject.getString("description"));
 
                                     JSONArray FruitArray = FactorObject.getJSONArray("detail");
                                     List<OrderFruitModel> orderFruitModelList = new ArrayList<>();

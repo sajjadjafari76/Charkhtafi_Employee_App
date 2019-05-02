@@ -11,7 +11,7 @@ public class Globals {
 //    public static final String ApiURL = "http://cpanel.traffictakestan.ir";
     public static final String ApiURL = "http://api.charkhtafi.ir";
 //    public static final String ApiURL = "http://charkhtafi.adila.ir/api/v1";
-    public static final String ApiURLIMAGE = "http://charkhtafi.adila.charkhtafi";
+//    public static final String ApiURLIMAGE = "http://charkhtafi.adila.charkhtafi";
     public static final String IRANSANS = "Fonts/IRANSANS.ttf";
     public static final String IRANSANSBOLD = "Fonts/IRANSansBold.ttf";
 

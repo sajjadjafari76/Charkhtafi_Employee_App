@@ -92,7 +92,7 @@ public class OrderAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
                 ((myCustomViewHolder) holder).PreOrder.setVisibility(View.GONE);
             }
 
-            if (data.get(position).getDescription() != null) {
+            if (data.get(position).getDescription() != null && !data.get(position).getDescription().equals("")) {
                 ((myCustomViewHolder) holder).Description.setText(" توضیحات : ".concat(data.get(position).getDescription()));
             } else {
                 ((myCustomViewHolder) holder).Description.setText(" توضیحات : توضیحی وجود ندارد");
@@ -338,7 +338,10 @@ public class OrderAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
 
                                     holder.View1.setVisibility(View.VISIBLE);
                                     holder.Active.setVisibility(View.GONE);
-                                    data.get(position).setActive(true);
+                                    holder.Progress_Yes.setVisibility(View.GONE);
+                                    holder.Yes.setText("پذیرش");
+
+//                                    data.get(position).setActive(true);
 
                                     if (state == 1) { // No -> Reject
                                         holder.Progress_Yes.setVisibility(View.GONE);

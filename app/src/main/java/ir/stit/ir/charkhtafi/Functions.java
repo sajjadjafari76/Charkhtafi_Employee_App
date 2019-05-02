@@ -24,7 +24,6 @@ import ir.stit.ir.charkhtafi.Network.CustomRequest;
 import ir.stit.ir.charkhtafi.Network.StringRequest;
 import ir.stit.ir.charkhtafi.Utils.Tools;
 
-import static ir.stit.ir.charkhtafi.Globals.ApiURLIMAGE;
 
 /**
  * Created by sajjadnet on 1/10/2018.
@@ -638,7 +637,7 @@ public class Functions {
                                         HashMap<String, Object> hashMap = new HashMap<String, Object>();
                                         hashMap.put("id", object1.getString("id"));
                                         hashMap.put("name", object1.getJSONObject("product").getString("name"));
-                                        hashMap.put("image", ApiURLIMAGE + object1.getJSONObject("product").getString("image"));
+//                                        hashMap.put("image", ApiURLIMAGE + object1.getJSONObject("product").getString("image"));
                                         hashMap.put("weight", object1.getString("quantity") + " " +
                                                 object1.getJSONObject("unit").getString("title"));
                                         data.add(hashMap);
