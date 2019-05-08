@@ -65,7 +65,7 @@ public class AllDeliveryAdapter extends RecyclerView.Adapter<AllDeliveryAdapter.
     @Override
     public myViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         return new myViewHolder(LayoutInflater.from(context)
-                .inflate(R.layout.custom_all_delivery_name,parent,false));
+                .inflate(R.layout.custom_all_delivery_name, parent, false));
     }
 
     @Override
@@ -104,13 +104,13 @@ public class AllDeliveryAdapter extends RecyclerView.Adapter<AllDeliveryAdapter.
         Tools.getInstance(context).ToastMessage("خطا در اتصال به سرور ، دوباره تلاش کنید.");
     }
 
-    public interface AllSuccess{
+    public interface AllSuccess {
         void success(String s);
     }
 
     class myViewHolder extends RecyclerView.ViewHolder {
 
-        private CustomTextView  Name;
+        private CustomTextView Name;
         private RelativeLayout CustomAllDeliveryDone;
         private ProgressBar Progress;
         private ImageView Image;
@@ -141,7 +141,7 @@ public class AllDeliveryAdapter extends RecyclerView.Adapter<AllDeliveryAdapter.
 
             CustomButton Yes = (CustomButton) progress.findViewById(R.id.CustomPermission_Yes);
             CustomButton Cancel = (CustomButton) progress.findViewById(R.id.CustomPermission_Cancel);
-            CustomTextView Content =  progress.findViewById(R.id.CustomPermission_Content);
+            CustomTextView Content = progress.findViewById(R.id.CustomPermission_Content);
             Content.setText("آیا مایل به حذف این میوه از فاکتور هستید؟");
             if (Yes != null && Cancel != null) {
                 Yes.setTypeface(CFProvider.getIRANIANSANS(context));
@@ -164,11 +164,10 @@ public class AllDeliveryAdapter extends RecyclerView.Adapter<AllDeliveryAdapter.
                 });
             }
 
-        }catch (Exception e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
-
 
 
     public void removeAt(int position) {
@@ -193,7 +192,10 @@ public class AllDeliveryAdapter extends RecyclerView.Adapter<AllDeliveryAdapter.
             params.put("OPR", "UPDATEPRODUCTS");
             params.put("Data", object.toString());
             params.put("BikeId", data.get(0).getAllDelivery().get(bikePosition).getId());
+            Log.e("TotlaLast", TotalPrice + " |");
             params.put("Total", TotalPrice);
+
+            Log.e("TotlaLast1212", params.toString() + " |");
 
             StringRequest loginRequest = new StringRequest(params, 0, new StringRequest.ResponseAction() {
                 @Override
@@ -209,11 +211,13 @@ public class AllDeliveryAdapter extends RecyclerView.Adapter<AllDeliveryAdapter.
                                 Toast.makeText(context, object.getString("msg"), Toast.LENGTH_SHORT).show();
                                 dialog.dismiss();
                                 removeAt(myPosition);
-                                holder.Progress.setVisibility(View.VISIBLE);
-                                holder.Image.setVisibility(View.GONE);
+                                holder.Progress.setVisibility(View.GONE);
+                                holder.Image.setVisibility(View.VISIBLE);
 
                             } else {
                                 Toast.makeText(context, object.getString("msg"), Toast.LENGTH_SHORT).show();
+                                holder.Progress.setVisibility(View.GONE);
+                                holder.Image.setVisibility(View.VISIBLE);
 //                                endAnimation();
                             }
                         }
@@ -221,6 +225,8 @@ public class AllDeliveryAdapter extends RecyclerView.Adapter<AllDeliveryAdapter.
                         e.printStackTrace();
                         Log.e("updateFactorFactor", e.toString() + " |");
                         Tools.getInstance(context).ToastMessage("خطا در اتصال به سرور ، دوباره تلاش کنید.");
+                        holder.Progress.setVisibility(View.GONE);
+                        holder.Image.setVisibility(View.VISIBLE);
 //                        endAnimation();
                     }
                 }
@@ -229,6 +235,8 @@ public class AllDeliveryAdapter extends RecyclerView.Adapter<AllDeliveryAdapter.
                 public void onErrorAction(VolleyError error) {
                     Log.e("updateFactorFactor1", error.toString());
                     Tools.getInstance(context).ToastMessage("خطا در اتصال به سرور ، دوباره تلاش کنید.");
+                    holder.Progress.setVisibility(View.GONE);
+                    holder.Image.setVisibility(View.VISIBLE);
 //                    endAnimation();
                 }
             });
@@ -238,6 +246,8 @@ public class AllDeliveryAdapter extends RecyclerView.Adapter<AllDeliveryAdapter.
             e.printStackTrace();
             Log.e("updateFactorFactor2", e.toString());
             Tools.getInstance(context).ToastMessage("خطا در اتصال به سرور ، دوباره تلاش کنید.");
+            holder.Progress.setVisibility(View.GONE);
+            holder.Image.setVisibility(View.VISIBLE);
 //            endAnimation();
         }
 

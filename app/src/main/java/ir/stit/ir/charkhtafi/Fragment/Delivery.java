@@ -113,6 +113,7 @@ public class Delivery extends Fragment {
             params.put("userid", Tools.getInstance(getContext()).read("UserId", ""));
             Log.e("dfd",Tools.getInstance(getContext()).read("UserId", "") + " |" );
 
+
             StringRequest loginRequest = new StringRequest(params, 0, new StringRequest.ResponseAction() {
                 @Override
                 public void onResponseAction(String response) {
@@ -160,6 +161,7 @@ public class Delivery extends Fragment {
                                         orderFruitModel.setImage(fruitModel.getString("pimg"));
                                         orderFruitModel.setWeight(fruitModel.getString("pmuch"));
                                         orderFruitModel.setDebtor((fruitModel.has("debtour")) ? fruitModel.getString("debtour") :"1");
+                                        orderFruitModel.setOff((fruitModel.has("poff")) ? fruitModel.getString("poff") :"0");
 
                                         orderFruitModelList.add(orderFruitModel);
 
@@ -174,7 +176,6 @@ public class Delivery extends Fragment {
                                 DeliveryRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()
                                         , LinearLayoutManager.VERTICAL, false));
                                 DeliveryRecyclerView.setAdapter(adapter);
-
 
                                 endAnimation();
 

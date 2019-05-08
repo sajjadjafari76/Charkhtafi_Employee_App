@@ -15,6 +15,8 @@ public class OrderModel {
     private String DeliveryPrice;
     private String Off;
     private String DeliveryFree;
+    private float DomainOffPercent; // the amount of percent for domain off
+    private int DomainStatus; // 1->dosn't have any off code | 2 -> it has off code & effect in order | 3 -> it has off code & effect to products
     private boolean IsPreOrder;
     private List<OrderFruitModel> fruitModel;
     private List<AllDeliveryModel> allDelivery;
@@ -108,5 +110,21 @@ public class OrderModel {
 
     public void setPreOrder(boolean preOrder) {
         IsPreOrder = preOrder;
+    }
+
+    public float getDomainOffPercent() {
+        return DomainOffPercent;
+    }
+
+    public void setDomainOffPercent(float domainOffPercent) {
+        DomainOffPercent = domainOffPercent;
+    }
+
+    public int getDomainStatus() {
+        return DomainStatus;
+    }
+
+    public void setDomainStatus(int domainStatus) {
+        DomainStatus = domainStatus;
     }
 }

@@ -53,8 +53,9 @@ public class DeliveryFruitAdapter extends RecyclerView.Adapter<DeliveryFruitAdap
                 .into(holder.Image);
 
         holder.Name.setText(model.getName().concat(" | " + model.getDegree()));
-        double total = Integer.parseInt(model.getPrice()) * Float.parseFloat(model.getWeight());
-        holder.TotalPrice.setText(Tools.getInstance(context).FormattedPrice2(String.valueOf((int)total)).concat(" تومان"));
+        double total = Double.parseDouble(model.getPrice()) * Float.parseFloat(model.getWeight());
+        double calculateOff = total - (( total / 100) * Float.parseFloat(model.getOff()));
+        holder.TotalPrice.setText(Tools.getInstance(context).FormattedPrice2(String.valueOf((int)calculateOff)).concat(" تومان"));
 
         holder.TotalWeight.setText(model.getWeight().concat(" " + model.getUnit()));
     }

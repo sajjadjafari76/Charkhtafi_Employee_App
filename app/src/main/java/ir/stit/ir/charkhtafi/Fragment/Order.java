@@ -486,6 +486,8 @@ public class Order extends Fragment {
                                     orderModel.setActive(FactorObject.getBoolean("isAccepted"));
                                     orderModel.setPreOrder(FactorObject.getBoolean("orderType"));
                                     orderModel.setDescription(FactorObject.getString("description"));
+                                    orderModel.setDomainOffPercent(Float.parseFloat(FactorObject.getString("offPercent")));
+                                    orderModel.setDomainStatus(FactorObject.getInt("offDomain"));
 
                                     JSONArray FruitArray = FactorObject.getJSONArray("detail");
                                     List<OrderFruitModel> orderFruitModelList = new ArrayList<>();
@@ -502,11 +504,13 @@ public class Order extends Fragment {
                                         fruitModel.setPrice(fruitObject.getString("pprice"));
                                         fruitModel.setDegree(fruitObject.getString("pqg"));
                                         fruitModel.setPriceId(fruitObject.getString("pfid"));
+                                        fruitModel.setOff(fruitObject.getString("poff"));
 
-                                        double sum = Integer.parseInt(fruitObject.getString("pprice"))
+                                        double sum = Double.parseDouble(fruitObject.getString("pprice"))
                                                 * Float.parseFloat(fruitObject.getString("pmuch"));
                                         fruitModel.setTotalWeight(String.valueOf((int) sum));
                                         fruitModel.setUnitId(fruitObject.getString("muid"));
+                                        fruitModel.setDomainOff(fruitObject.getBoolean("hasOffer"));
 
                                         orderFruitModelList.add(fruitModel);
                                     }

@@ -13,6 +13,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.ProgressBar;
 import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -102,7 +103,7 @@ public class DeliveryAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
 
         if (data.get(position).isPreOrder()) {
             holder1.PreOrderImage.setVisibility(View.VISIBLE);
-        }else {
+        } else {
             holder1.PreOrderImage.setVisibility(View.GONE);
         }
 
@@ -119,16 +120,16 @@ public class DeliveryAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
             holder1.Bike.setText(model.getBikePrice());
         }
 
-        int debtor = 0;
+        double debtor = 0;
         for (int i = 0; i < model.getData().size(); i++) {
 
-            debtor = debtor + Integer.parseInt(model.getData().get(i).getDebtor());
+            debtor = debtor + Double.parseDouble(model.getData().get(i).getDebtor());
 
         }
-        ((myCustomViewHolder) holder).Debtor.setText("بدهی: ".concat(Tools.getInstance(context).FormattedPrice2(String.valueOf(debtor)).concat(" تومان")));
+        ((myCustomViewHolder) holder).Debtor.setText("بدهی: ".concat(Tools.getInstance(context).FormattedPrice2(String.valueOf((int) debtor)).concat(" تومان")));
 
 
-        int finalDebtor = debtor;
+        double finalDebtor = debtor;
         holder1.Ok.setOnClickListener(v -> {
             AlertDialog.Builder dialog = new AlertDialog.Builder(context);
             dialog.setView(R.layout.delivery_layout_dialog);
@@ -144,6 +145,7 @@ public class DeliveryAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
             Button delivered = alertDialog.findViewById(R.id.LayoutDialog_DeliveredBtn);
             Button reflection = alertDialog.findViewById(R.id.LayoutDialog_ReflectionBtn);
             LinearLayout stepOne = alertDialog.findViewById(R.id.LayoutDialog_StepOne);
+            ProgressBar progressBar = alertDialog.findViewById(R.id.LayoutDialogProgress);
             //* StepOne *//
 
             //** Reflected **//
@@ -193,13 +195,17 @@ public class DeliveryAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
             });
 
             debutSend.setOnClickListener(v2 -> {
+                progressBar.setVisibility(View.VISIBLE);
+                debutSend.setText(" ");
                 Log.e("kosdast12", model.getId() + " | " + trackingCode.getText().toString() + " | " + finalDebtor);
                 if (model.getPayment().equals("0") && finalDebtor <= 0) {
                     sendFactorToServer(model.getId(), paymentType[0],
-                            trackingCode.getText().toString(), String.valueOf(finalDebtor), paymentType[1], "0", position, model.getPayment()); // status 0-> without debtor
+                            trackingCode.getText().toString(), String.valueOf(finalDebtor), paymentType[1], "0",
+                            position, model.getPayment(), progressBar, debutSend); // status 0-> without debtor
                 } else {
                     sendFactorToServer(model.getId(), paymentType[0],
-                            trackingCode.getText().toString(), String.valueOf(finalDebtor), paymentType[1], "1", position, model.getPayment()); // status 1-> with debtor
+                            trackingCode.getText().toString(), String.valueOf(finalDebtor), paymentType[1], "1"
+                            , position, model.getPayment(), progressBar, debutSend); // status 1-> with debtor
                 }
 
             });
@@ -450,7 +456,7 @@ public class DeliveryAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
     }
 
     private void sendFactorToServer(String FactorId, String PayType, String TrackCode, String Debtor,
-                                    String Paid, String Status, int position, String PaymentType) {
+                                    String Paid, String Status, int position, String PaymentType, ProgressBar progressBar, Button debutSend) {
 
         try {
             Map<String, String> params = new HashMap<>();
@@ -472,6 +478,8 @@ public class DeliveryAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
                 public void onResponseAction(String response) {
                     Log.e("FactorToServerResponse", response);
 
+                    progressBar.setVisibility(View.GONE);
+                    debutSend.setText("ارسال");
                     try {
                         JSONObject object = new JSONObject(response);
 
@@ -499,6 +507,8 @@ public class DeliveryAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
                     error.printStackTrace();
                     Log.e("FactorToServerError2", error.toString());
                     Tools.getInstance(context).ToastMessage("خطا در اتصال به سرور ، دوباره تلاش کنید.");
+                    progressBar.setVisibility(View.GONE);
+                    debutSend.setText("ارسال");
 //                    endAnimation();
                 }
             });
@@ -508,6 +518,8 @@ public class DeliveryAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
             e.printStackTrace();
             Log.e("FactorToServerError3", e.toString());
             Tools.getInstance(context).ToastMessage("خطا در اتصال به سرور ، دوباره تلاش کنید.");
+            progressBar.setVisibility(View.GONE);
+            debutSend.setText("ارسال");
         }
     }
 

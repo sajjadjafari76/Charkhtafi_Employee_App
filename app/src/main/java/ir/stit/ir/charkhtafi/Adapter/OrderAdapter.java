@@ -88,7 +88,7 @@ public class OrderAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
 
             if (data.get(position).isPreOrder()) {
                 ((myCustomViewHolder) holder).PreOrder.setVisibility(View.VISIBLE);
-            }else {
+            } else {
                 ((myCustomViewHolder) holder).PreOrder.setVisibility(View.GONE);
             }
 
@@ -111,53 +111,157 @@ public class OrderAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
             try {
                 All.put("FactorID", data.get(position).getId());
 
-
                 JSONArray array = new JSONArray();
                 double sum = 0;
 
-                for (int i = 0; i < data.get(position).getFruitModel().size(); i++) {
+                if (data.get(position).getDomainStatus() == 1) { // this means that domain off effect on nothing
 
-                    try {
-                        JSONObject object = new JSONObject();
+                    for (int i = 0; i < data.get(position).getFruitModel().size(); i++) {
 
-                        object.put("OldPrice", data.get(position).getFruitModel().get(i).getPrice());
-                        object.put("NewPrice",
-                                (data.get(position).getFruitModel().get(i).getNewPrice() == null) ?
-                                        data.get(position).getFruitModel().get(i).getPrice() :
-                                        (!data.get(position).getFruitModel().get(i).getNewPrice().isEmpty()) ? data.get(position).getFruitModel().get(i).getNewPrice() :
-                                                data.get(position).getFruitModel().get(i).getPrice()
-                        );
+                        try {
+                            JSONObject object = new JSONObject();
 
+                            object.put("OldPrice", data.get(position).getFruitModel().get(i).getPrice());
+                            object.put("NewPrice",
+                                    (data.get(position).getFruitModel().get(i).getNewPrice() == null) ?
+                                            data.get(position).getFruitModel().get(i).getPrice() :
+                                            (!data.get(position).getFruitModel().get(i).getNewPrice().isEmpty()) ? data.get(position).getFruitModel().get(i).getNewPrice() :
+                                                    data.get(position).getFruitModel().get(i).getPrice()
+                            );
 
-                        object.put("OldWeight", data.get(position).getFruitModel().get(i).getWeight());
-                        object.put("NewWeight", (data.get(position).getFruitModel().get(i).getNewWeight() == null) ?
-                                data.get(position).getFruitModel().get(i).getWeight() :
-                                (!data.get(position).getFruitModel().get(i).getNewWeight().isEmpty()) ? data.get(position).getFruitModel().get(i).getNewWeight() :
-                                        data.get(position).getFruitModel().get(i).getWeight()
-                        );
+                            object.put("OldWeight", data.get(position).getFruitModel().get(i).getWeight());
+                            object.put("NewWeight", (data.get(position).getFruitModel().get(i).getNewWeight() == null) ?
+                                    data.get(position).getFruitModel().get(i).getWeight() :
+                                    (!data.get(position).getFruitModel().get(i).getNewWeight().isEmpty()) ? data.get(position).getFruitModel().get(i).getNewWeight() :
+                                            data.get(position).getFruitModel().get(i).getWeight()
+                            );
 
-                        sum = sum + (Integer.parseInt(object.getString("NewPrice")) * Float.parseFloat(object.getString("NewWeight")));
+                            double prices = (Double.parseDouble(data.get(position).getFruitModel().get(i).getPrice()))
+                                    - ((Double.parseDouble(data.get(position).getFruitModel().get(i).getPrice()) / 100)
+                                    * Float.parseFloat(data.get(position).getFruitModel().get(i).getOff()));
 
+                            sum = sum + prices * Float.parseFloat(object.getString("NewWeight"));
 
-                        object.put("PriceId", data.get(position).getFruitModel().get(i).getPriceId());
-                        object.put("ProductId", data.get(position).getFruitModel().get(i).getFruitId());
+                            object.put("PriceId", data.get(position).getFruitModel().get(i).getPriceId());
+                            object.put("ProductId", data.get(position).getFruitModel().get(i).getFruitId());
 
-                        array.put(object);
-                    } catch (Exception e) {
-                        e.printStackTrace();
-                        Log.e("OrderAdapterError", e.toString());
+                            array.put(object);
+
+                            if (data.get(position).getDeliveryPrice().matches("\\d+(?:\\.\\d+)?")) {
+                                All.put("Total", String.valueOf((((int) sum) + Double.parseDouble(data.get(position).getDeliveryPrice()))));
+                            } else {
+                                All.put("Total", String.valueOf((int) sum));
+                            }
+
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                            Log.e("OffDomain==1", e.toString());
+                        }
                     }
+
+                } else if (data.get(position).getDomainStatus() == 2) { // this means that domain off effect on order
+
+                    for (int i = 0; i < data.get(position).getFruitModel().size(); i++) {
+
+                        try {
+                            JSONObject object = new JSONObject();
+
+                            object.put("OldPrice", data.get(position).getFruitModel().get(i).getPrice());
+                            object.put("NewPrice",
+                                    (data.get(position).getFruitModel().get(i).getNewPrice() == null) ?
+                                            data.get(position).getFruitModel().get(i).getPrice() :
+                                            (!data.get(position).getFruitModel().get(i).getNewPrice().isEmpty()) ? data.get(position).getFruitModel().get(i).getNewPrice() :
+                                                    data.get(position).getFruitModel().get(i).getPrice()
+                            );
+
+                            object.put("OldWeight", data.get(position).getFruitModel().get(i).getWeight());
+                            object.put("NewWeight", (data.get(position).getFruitModel().get(i).getNewWeight() == null) ?
+                                    data.get(position).getFruitModel().get(i).getWeight() :
+                                    (!data.get(position).getFruitModel().get(i).getNewWeight().isEmpty()) ? data.get(position).getFruitModel().get(i).getNewWeight() :
+                                            data.get(position).getFruitModel().get(i).getWeight()
+                            );
+
+                            double prices = (Double.parseDouble(data.get(position).getFruitModel().get(i).getPrice()))
+                                    - ((Double.parseDouble(data.get(position).getFruitModel().get(i).getPrice()) / 100)
+                                    * Float.parseFloat(data.get(position).getFruitModel().get(i).getOff()));
+
+                            sum = sum + prices * Float.parseFloat(object.getString("NewWeight"));
+
+                            object.put("PriceId", data.get(position).getFruitModel().get(i).getPriceId());
+                            object.put("ProductId", data.get(position).getFruitModel().get(i).getFruitId());
+
+                            array.put(object);
+
+                            if (data.get(position).getDeliveryPrice().matches("\\d+(?:\\.\\d+)?")) {
+                                sum = (((int) sum) + Double.parseDouble(data.get(position).getDeliveryPrice()));
+                            } else {
+//                                All.put("Total", String.valueOf((int) sum));
+                                //nothing to do
+                            }
+                            All.put("Total", String.valueOf(sum - ((sum / 100) * data.get(position).getDomainOffPercent())));
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                            Log.e("OffDomain==1", e.toString());
+                        }
+                    }
+                } else if (data.get(position).getDomainStatus() == 3) { // this means that domain off effect on product
+
+
+                    for (int i = 0; i < data.get(position).getFruitModel().size(); i++) {
+
+                        try {
+                            JSONObject object = new JSONObject();
+
+                            object.put("OldPrice", data.get(position).getFruitModel().get(i).getPrice());
+                            object.put("NewPrice",
+                                    (data.get(position).getFruitModel().get(i).getNewPrice() == null) ?
+                                            data.get(position).getFruitModel().get(i).getPrice() :
+                                            (!data.get(position).getFruitModel().get(i).getNewPrice().isEmpty()) ? data.get(position).getFruitModel().get(i).getNewPrice() :
+                                                    data.get(position).getFruitModel().get(i).getPrice()
+                            );
+
+                            object.put("OldWeight", data.get(position).getFruitModel().get(i).getWeight());
+                            object.put("NewWeight", (data.get(position).getFruitModel().get(i).getNewWeight() == null) ?
+                                    data.get(position).getFruitModel().get(i).getWeight() :
+                                    (!data.get(position).getFruitModel().get(i).getNewWeight().isEmpty()) ? data.get(position).getFruitModel().get(i).getNewWeight() :
+                                            data.get(position).getFruitModel().get(i).getWeight()
+                            );
+
+                            float off = 0;
+                            if (data.get(position).getFruitModel().get(i).isDomainOff()) {
+                                off = Float.parseFloat(data.get(position).getFruitModel().get(i).getOff()) + data.get(position).getDomainOffPercent();
+                            }else {
+                                off = Float.parseFloat(data.get(position).getFruitModel().get(i).getOff());
+                            }
+
+                            double prices = (Double.parseDouble(data.get(position).getFruitModel().get(i).getPrice()))
+                                    - ((Double.parseDouble(data.get(position).getFruitModel().get(i).getPrice()) / 100) * off);
+
+                            sum = sum + prices * Float.parseFloat(object.getString("NewWeight"));
+
+                            object.put("PriceId", data.get(position).getFruitModel().get(i).getPriceId());
+                            object.put("ProductId", data.get(position).getFruitModel().get(i).getFruitId());
+
+                            array.put(object);
+
+                            if (data.get(position).getDeliveryPrice().matches("\\d+(?:\\.\\d+)?")) {
+                                All.put("Total", String.valueOf((((int) sum) + Double.parseDouble(data.get(position).getDeliveryPrice()))));
+                            } else {
+                                All.put("Total", String.valueOf((int) sum));
+                            }
+
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                            Log.e("OffDomain==1", e.toString());
+                        }
+                    }
+
                 }
 
-                if (data.get(position).getDeliveryPrice().matches("\\d+(?:\\.\\d+)?")) {
-                    All.put("Total", String.valueOf((((int) sum) + Integer.parseInt(data.get(position).getDeliveryPrice()))));
-                } else {
-                    All.put("Total", String.valueOf((int) sum));
-                }
 
                 All.put("ProductInfo", array);
 
-                Log.e("dddddddddddddd", data.get(position).getTotalPrice()  + " |");
+                Log.e("dddddddddddddd", data.get(position).getTotalPrice() + " |");
                 ShowDialogDelivery(position, data, All, data.get(position).getTotalPrice());
 
             } catch (JSONException e) {
@@ -309,6 +413,7 @@ public class OrderAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
     }
 
 
+    // user accept this order or not
     private void sendActivatedFactor(String FactorId, String Status, myCustomViewHolder holder, int position, int state) {
 
         try {
@@ -317,7 +422,7 @@ public class OrderAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
             params.put("userid", Tools.getInstance(context).read("UserId", ""));
             params.put("rid", FactorId);
             params.put("status", Status);
-            params.put("uname", Tools.getInstance(context).read("UserName",""));
+            params.put("uname", Tools.getInstance(context).read("UserName", ""));
 
             Log.e("ssddff", params.toString() + " |");
 
@@ -346,7 +451,7 @@ public class OrderAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
                                     if (state == 1) { // No -> Reject
                                         holder.Progress_Yes.setVisibility(View.GONE);
                                         holder.No.setText("عدم پذیرش");
-                                    }else if (state == 2) { // Yes -> Accepted
+                                    } else if (state == 2) { // Yes -> Accepted
                                         holder.Progress_No.setVisibility(View.GONE);
                                         holder.No.setText("پذیرش");
                                     }

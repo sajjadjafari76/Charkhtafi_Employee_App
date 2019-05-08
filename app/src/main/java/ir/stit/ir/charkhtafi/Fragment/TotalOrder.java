@@ -142,64 +142,6 @@ public class TotalOrder extends Fragment {
     }
 
 
-//
-//    private class LoadingAsync extends AsyncTask<Void,Void,Void> {
-//
-//        private AlphaAnimation inAnimation;
-//        private AlphaAnimation outAnimation;
-//
-//        @Override
-//        protected void onPreExecute() {
-//            super.onPreExecute();
-//            inAnimation = new AlphaAnimation(0f, 1f);
-//            inAnimation.setDuration(300);
-//            Loading.setAnimation(inAnimation);
-//            CardView.setVisibility(View.GONE);
-//            Loading.setVisibility(View.VISIBLE);
-//        }
-//
-//        @Override
-//        protected Void doInBackground(Void... params) {
-//
-//            try {
-////                for (int i = 0; i < 3; i++) {
-////                    TimeUnit.SECONDS.sleep(1);
-////                }
-////
-////                getActivity().runOnUiThread(new Runnable() {
-////                    @Override
-////                    public void run() {
-////
-////                        TotalOrderAdapter adapter = new TotalOrderAdapter(getdata(), getActivity());
-////                        TotalOrderRecyclerView
-////                                .setLayoutManager(new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL, false));
-////                        TotalOrderRecyclerView.setAdapter(adapter);
-////
-////                    }
-////                });
-//
-//                Functions.getInstance(getActivity()).TotalOrder(TotalOrder.this);
-//
-//            } catch (Exception e) {
-//                e.printStackTrace();
-//            }
-//
-//            return null;
-//        }
-//
-//        @Override
-//        protected void onPostExecute(Void v) {
-//            super.onPostExecute(v);
-//            outAnimation = new AlphaAnimation(1f, 0f);
-//            outAnimation.setDuration(300);
-//            Loading.setAnimation(outAnimation);
-//            Loading.setVisibility(View.GONE);
-//            CardView.setVisibility(View.VISIBLE);
-//            Refresh.setRefreshing(false);
-//        }
-//    }
-
-
     public void getTotalProducts() {
 
         try {
@@ -221,9 +163,8 @@ public class TotalOrder extends Fragment {
                                 JSONObject Array = object.getJSONObject("msg");
                                 JSONArray ProductArray = Array.getJSONArray("detail");
 
-
                                 if (ProductArray.length() == 0) {
-                                    Log.e("ddeerr","hhhhhjbjv");
+                                    Log.e("ddeerr", "hhhhhjbjv");
 
                                     TotalOrder_Empty.setVisibility(View.VISIBLE);
                                     TotalOrderRecyclerView.setVisibility(View.GONE);
@@ -231,7 +172,7 @@ public class TotalOrder extends Fragment {
                                     endAnimation();
                                     TotalOrderRecyclerView.setVisibility(View.GONE); // because recycler visible when refresh after sending it to server
 
-                                }else {
+                                } else {
 
                                     TotalOrderModel totalOrderModelList = new TotalOrderModel();
 

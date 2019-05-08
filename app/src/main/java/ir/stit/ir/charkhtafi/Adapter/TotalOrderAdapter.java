@@ -111,9 +111,7 @@ public class TotalOrderAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
                 customBtn.btn.setOnClickListener(v -> {
 //                        Toast.makeText(context, "Clicked", Toast.LENGTH_SHORT).show();
 
-
                     ShowDialogBuyer(data.getAllBuyer());
-
 
                 });
 

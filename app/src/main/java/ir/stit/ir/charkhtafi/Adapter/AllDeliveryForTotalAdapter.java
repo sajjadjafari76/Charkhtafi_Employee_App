@@ -32,7 +32,7 @@ import ir.stit.ir.charkhtafi.Utils.Views.CFProvider;
 import ir.stit.ir.charkhtafi.Utils.Views.CustomButton;
 import ir.stit.ir.charkhtafi.Utils.Views.CustomTextView;
 
-public class AllDeliveryForTotalAdapter extends RecyclerView.Adapter<AllDeliveryForTotalAdapter.myViewHolder>{
+public class AllDeliveryForTotalAdapter extends RecyclerView.Adapter<AllDeliveryForTotalAdapter.myViewHolder> {
 
     private List<AllDeliveryModel> data;
     private List<TotalProductOrderModel> TotalOrder;
@@ -127,8 +127,8 @@ public class AllDeliveryForTotalAdapter extends RecyclerView.Adapter<AllDelivery
             progress.setCancelable(false);
             progress.show();
 
-            CustomButton Yes =  progress.findViewById(R.id.CustomPermission_Yes);
-            CustomButton Cancel =  progress.findViewById(R.id.CustomPermission_Cancel);
+            CustomButton Yes = progress.findViewById(R.id.CustomPermission_Yes);
+            CustomButton Cancel = progress.findViewById(R.id.CustomPermission_Cancel);
             CustomTextView Content = progress.findViewById(R.id.CustomPermission_Content);
             Content.setText("آیا مایل به حذف این میوه از فاکتور هستید؟");
             if (Yes != null && Cancel != null) {
@@ -162,7 +162,7 @@ public class AllDeliveryForTotalAdapter extends RecyclerView.Adapter<AllDelivery
         try {
             Map<String, String> params = new HashMap<>();
 
-            object.put("userid",Tools.getInstance(context).read("UserId",""));
+            object.put("userid", Tools.getInstance(context).read("UserId", ""));
 
             params.put("OPR", "UPDATEPRICEOFGROUP");
             params.put("Data", object.toString());
@@ -181,7 +181,8 @@ public class AllDeliveryForTotalAdapter extends RecyclerView.Adapter<AllDelivery
                                 Toast.makeText(context, object.getString("msg"), Toast.LENGTH_SHORT).show();
                                 alertDialog.dismiss();
                                 recyclerView.setVisibility(View.GONE);
-                                PreviousData.getTotalOrder().clear(); PreviousData.getAllBuyer().clear();
+                                PreviousData.getTotalOrder().clear();
+                                PreviousData.getAllBuyer().clear();
 
                             } else {
                                 Toast.makeText(context, object.getString("msg"), Toast.LENGTH_SHORT).show();

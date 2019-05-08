@@ -21,6 +21,7 @@ public class OrderFruitModel {
         private String Degree;
         private String PriceId;
         private String Debtor;
+        private boolean DomainOff;
 
         public String getName() {
                 return Name;
@@ -140,5 +141,13 @@ public class OrderFruitModel {
 
         public void setDebtor(String debtor) {
                 Debtor = debtor;
+        }
+
+        public boolean isDomainOff() {
+                return DomainOff;
+        }
+
+        public void setDomainOff(boolean domainOff) {
+                DomainOff = domainOff;
         }
 }

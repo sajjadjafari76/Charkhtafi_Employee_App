@@ -10,7 +10,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.View;
+import android.widget.Button;
 import android.widget.LinearLayout;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.android.volley.VolleyError;
@@ -34,8 +37,9 @@ public class Login extends AppCompatActivity {
     private TextInputLayout inputLayout1, inputLayout2;
     private LinearLayout Login_Root;
     private TextInputEditText Login_UserName, Login_Mobile;
-    private CustomTextView Login_Btn;
+    private Button Login_Btn;
     private AlertDialog progress;
+    private ProgressBar Loading;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,8 +48,9 @@ public class Login extends AppCompatActivity {
         INI();
         ShowDialog();
 
-        Login_Btn.setOnClickListener(v -> LoginToApp(Login_UserName.getText().toString(), Login_Mobile.getText().toString()));
-
+        Login_Btn.setOnClickListener(v -> {
+            LoginToApp(Login_UserName.getText().toString(), Login_Mobile.getText().toString());
+        });
     }
 
     private void INI() {
@@ -59,6 +64,7 @@ public class Login extends AppCompatActivity {
         Login_Mobile = findViewById(R.id.Login_Mobile);
         Login_Mobile.setTypeface(CFProvider.getIRANIANSANS(getApplicationContext()));
         Login_Btn = findViewById(R.id.Login_Btn);
+        Loading = findViewById(R.id.Login_Progress);
     }
 
     private void ShowDialog() {
@@ -85,6 +91,8 @@ public class Login extends AppCompatActivity {
                     .SnackBar(Login_Root, getResources().getString(R.string.MobileNullError), 1);
         } else {
 
+            Loading.setVisibility(View.VISIBLE);
+            Login_Btn.setText(" ");
             login(UserName, Mobile);
 
         }
@@ -118,9 +126,16 @@ public class Login extends AppCompatActivity {
                                 Tools.getInstance(getBaseContext()).write("UserType", objectMsg.getString("usertype"));
                                 Tools.getInstance(getBaseContext()).write("UserName", objectMsg.getString("username"));
 
-                                startActivity(new Intent(getBaseContext(), MainActivity.class));
+                                Intent intent = new Intent(getBaseContext(), MainActivity.class);
+                                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK);
+                                startActivity(intent);
+
+                                Loading.setVisibility(View.GONE);
+                                Login_Btn.setText("ورود به سیستم");
 
                             } else {
+                                Loading.setVisibility(View.GONE);
+                                Login_Btn.setText("ورود به سیستم");
                                 Toast.makeText(Login.this, object.getString("msg"), Toast.LENGTH_SHORT).show();
                             }
                         }
@@ -128,12 +143,17 @@ public class Login extends AppCompatActivity {
                         e.printStackTrace();
                         Log.e("ErrorLogin", e.toString() + " |");
                         Toast.makeText(Login.this, "خطایی در سیستم رخ داد لطفا دوباره امتحان کنید.", Toast.LENGTH_SHORT).show();
+                        Loading.setVisibility(View.GONE);
+                        Login_Btn.setText("ورود به سیستم");
                     }
                 }
+
                 @Override
                 public void onErrorAction(VolleyError error) {
                     Log.e("ErrorLogin1", error.toString());
                     Toast.makeText(Login.this, "خطایی در سیستم رخ داد لطفا دوباره امتحان کنید.", Toast.LENGTH_SHORT).show();
+                    Loading.setVisibility(View.GONE);
+                    Login_Btn.setText("ورود به سیستم");
                 }
             });
 
@@ -142,6 +162,8 @@ public class Login extends AppCompatActivity {
             e.printStackTrace();
             Log.e("ErrorLogin2", e.toString());
             Toast.makeText(Login.this, "خطایی در سیستم رخ داد لطفا دوباره امتحان کنید.", Toast.LENGTH_SHORT).show();
+            Loading.setVisibility(View.GONE);
+            Login_Btn.setText("ورود به سیستم");
         }
 
     }
@@ -151,8 +173,9 @@ public class Login extends AppCompatActivity {
     protected void onPostResume() {
         super.onPostResume();
         if (!Tools.getInstance(getApplicationContext()).read("UserId", "").trim().isEmpty()) {
-            startActivity(new Intent(getApplicationContext(), MainActivity.class));
-            finish();
+            Intent intent = new Intent(getBaseContext(), MainActivity.class);
+            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK);
+            startActivity(intent);
         }
     }
 

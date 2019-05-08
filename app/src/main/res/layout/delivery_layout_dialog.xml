@@ -166,19 +166,40 @@
             android:layout_width="match_parent"
             android:layout_height="50dp">
 
-            <Button
-                android:id="@+id/LayoutDialog_DebutSend"
-                style="@style/Widget.AppCompat.Button.Borderless"
+
+            <RelativeLayout
+                android:id="@+id/Order_ButtonView"
                 android:layout_width="110dp"
                 android:layout_height="30dp"
                 android:layout_marginLeft="12dp"
-                android:layout_marginTop="12dp"
-                android:background="#66BB6A"
-                android:drawableRight="@drawable/ic_check"
-                android:fontFamily="@font/shabnam"
-                android:gravity="center"
-                android:text="ارسال"
-                android:textColor="#FFF" />
+                android:layout_marginTop="12dp">
+
+
+                <Button
+                    android:id="@+id/LayoutDialog_DebutSend"
+                    style="@style/Widget.AppCompat.Button.Borderless"
+                    android:layout_width="110dp"
+                    android:layout_height="30dp"
+                    android:background="#66BB6A"
+                    android:drawableRight="@drawable/ic_check"
+                    android:fontFamily="@font/shabnam"
+                    android:gravity="center"
+                    android:text="ارسال"
+                    android:textColor="#FFF" />
+
+                <ProgressBar
+                    android:id="@+id/LayoutDialogProgress"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_centerInParent="true"
+                    android:elevation="8dp"
+                    android:indeterminate="true"
+                    android:indeterminateTint="#FFF"
+                    android:visibility="gone" />
+
+            </RelativeLayout>
+
+
 
 
             <Button
