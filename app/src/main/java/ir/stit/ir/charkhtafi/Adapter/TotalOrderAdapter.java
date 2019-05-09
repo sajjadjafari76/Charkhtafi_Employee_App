@@ -185,7 +185,6 @@ public class TotalOrderAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
             super(itemView);
 
             btn = itemView.findViewById(R.id.Custom_TotalOrder_Btn);
-
         }
     }
 }
