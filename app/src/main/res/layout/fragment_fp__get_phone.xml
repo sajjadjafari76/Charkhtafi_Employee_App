@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ForgotPass.FP_GetPhone"
+    android:orientation="vertical"
+    android:gravity="center">
+
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/Login_InputLayout1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/TextInputLayout">
+
+
+        <android.support.design.widget.TextInputEditText
+            android:id="@+id/FGGetPhone_Text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="start"
+            android:hint="شماره همراه خود را وارد کنید!"
+            android:inputType="phone"
+            android:fontFamily="@font/shabnam"
+            android:maxLines="1"
+            android:singleLine="true"
+            android:layout_marginRight="15dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginBottom="10dp"
+            android:textSize="15sp" />
+
+        <requestFocus />
+    </android.support.design.widget.TextInputLayout>
+
+
+    <RelativeLayout
+        android:id="@+id/Order_ButtonView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="30dp">
+
+
+        <Button
+            android:id="@+id/FGGetPhone_Btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/shape_login_btn"
+            android:fontFamily="@font/shabnam"
+            android:text="ارسال"
+            android:textColor="#FFF" />
+
+        <ProgressBar
+            android:id="@+id/FGGetPhone_Progress"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_centerInParent="true"
+            android:elevation="8dp"
+            android:indeterminate="true"
+            android:indeterminateTint="#FFF"
+            android:visibility="gone" />
+
+    </RelativeLayout>
+
+
+</LinearLayout>

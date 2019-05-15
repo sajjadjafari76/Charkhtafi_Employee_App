@@ -49,7 +49,6 @@ public class Edit_Price extends Fragment {
     private AlphaAnimation inAnimation;
     private AlphaAnimation outAnimation;
 
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -184,7 +183,6 @@ public class Edit_Price extends Fragment {
                 return false;
             }
         });
-
     }
 
     public void getProduct() {

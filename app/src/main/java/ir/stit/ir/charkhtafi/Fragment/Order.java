@@ -110,7 +110,6 @@ public class Order extends Fragment {
                 Refresh.setEnabled(dx == 0 && topRowVerticalPosition >= 0);
             }
 
-
         });
 
 

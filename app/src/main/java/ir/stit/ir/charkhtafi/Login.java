@@ -14,6 +14,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.VolleyError;
@@ -27,6 +28,7 @@ import java.util.Map;
 
 import co.ronash.pushe.Pushe;
 import ir.stit.ir.charkhtafi.AppController.AppController;
+import ir.stit.ir.charkhtafi.ForgotPass.ForgotPassActivity;
 import ir.stit.ir.charkhtafi.Network.StringRequest;
 import ir.stit.ir.charkhtafi.Utils.Tools;
 import ir.stit.ir.charkhtafi.Utils.Views.CFProvider;
@@ -65,6 +67,10 @@ public class Login extends AppCompatActivity {
         Login_Mobile.setTypeface(CFProvider.getIRANIANSANS(getApplicationContext()));
         Login_Btn = findViewById(R.id.Login_Btn);
         Loading = findViewById(R.id.Login_Progress);
+        TextView forgotPass = findViewById(R.id.Login_ForgotPass);
+        forgotPass.setOnClickListener(v ->{
+            startActivity(new Intent(getBaseContext(), ForgotPassActivity.class));
+        });
     }
 
     private void ShowDialog() {

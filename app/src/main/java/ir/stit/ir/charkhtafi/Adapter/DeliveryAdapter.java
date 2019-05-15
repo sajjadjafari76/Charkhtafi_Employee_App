@@ -167,6 +167,8 @@ public class DeliveryAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
             TextView question = alertDialog.findViewById(R.id.LayoutDialog_Question);
             Button reflectedBtnBack1 = alertDialog.findViewById(R.id.LayoutDialog_ReflectedBack1);
 
+            Log.e("status", model.getPayment() + " | " + Math.round(finalDebtor) );
+
             reflectedBtnBack1.setOnClickListener(v1 -> {
                 stepOne.setVisibility(View.VISIBLE);
                 view.setVisibility(View.GONE);

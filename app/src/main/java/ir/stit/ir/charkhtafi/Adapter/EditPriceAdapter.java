@@ -58,7 +58,7 @@ public class EditPriceAdapter extends RecyclerView.Adapter<EditPriceAdapter.myVi
 
 //        holder.Type.setText(model.getType());
         holder.Name.setText(model.getName() + " - " + model.getType());
-        Log.e("pricePrice", model.getPrice() + " |");
+//        Log.e("pricePrice", model.getPrice() + " |");
         holder.Price.setText(Tools.getInstance(context).FormattedPrice2(model.getPrice()) + " تومان");
 
         Picasso.with(context)
