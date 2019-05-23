@@ -109,7 +109,7 @@ public class DeliveryAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
 
         holder1.Name.setText(model.getName());
         holder1.CustomOrder_Factor.setText("شماره فاکتور : ".concat(model.getId()));
-//        holder1.Family.setText( " بدهکار : " + model.getDebtor());
+//        holder1.Family.setText( " بدهکار : " + model.getWallet());
         holder1.Family.setText(Tools.getInstance(context).FormattedPrice2(model.getTotalOrderPrice()).concat(" تومان"));
         holder1.Address.setText(model.getAddress());
         holder1.Payment.setText((model.getPayment().equals("0")) ? " پرداخت اینترنتی" : "پرداخت درب منزل");

@@ -41,7 +41,6 @@ import ir.stit.ir.charkhtafi.Utils.Tools;
 
 public class Order extends Fragment {
 
-
     View view;
 
     private boolean doubleBackToExitPressedOnce;
@@ -487,6 +486,7 @@ public class Order extends Fragment {
                                     orderModel.setDescription(FactorObject.getString("description"));
                                     orderModel.setDomainOffPercent(Float.parseFloat(FactorObject.getString("offPercent")));
                                     orderModel.setDomainStatus(FactorObject.getInt("offDomain"));
+                                    orderModel.setWallet(Double.parseDouble(FactorObject.getString("camount")));
 
                                     JSONArray FruitArray = FactorObject.getJSONArray("detail");
                                     List<OrderFruitModel> orderFruitModelList = new ArrayList<>();

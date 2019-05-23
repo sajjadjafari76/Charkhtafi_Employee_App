@@ -21,6 +21,7 @@ public class OrderModel {
     private List<OrderFruitModel> fruitModel;
     private List<AllDeliveryModel> allDelivery;
     private boolean Active;
+    private double Wallet;
 
 
     public String getId() {
@@ -126,5 +127,13 @@ public class OrderModel {
 
     public void setDomainStatus(int domainStatus) {
         DomainStatus = domainStatus;
+    }
+
+    public double getWallet() {
+        return Wallet;
+    }
+
+    public void setWallet(double wallet) {
+        Wallet = wallet;
     }
 }

@@ -34,32 +34,38 @@ import ir.stit.ir.charkhtafi.Utils.Views.CustomButton;
 import ir.stit.ir.charkhtafi.Utils.Views.CustomTextView;
 
 
-public class AllDeliveryAdapter extends RecyclerView.Adapter<AllDeliveryAdapter.myViewHolder> implements Functions.All {
+public class AllDeliveryAdapter extends RecyclerView.Adapter<AllDeliveryAdapter.myViewHolder> {
 
     private List<OrderModel> data;
     private OrderAdapter orderAdapter;
     private Activity context;
     private AlertDialog progress;
     private int myPosition;
-    private JSONArray alldata;
-    private String OrderId;
     private AlertDialog dialog;
-    private String total;
     private JSONObject jsonObject;
     private String TotalPrice;
 
+    // for wallet
+    private int WalletStatus = 0, CreditorState = 0;
+    private double NewWallet, lastUpdateWallet;
+
+
     public AllDeliveryAdapter(List<OrderModel> datas, Activity context, int position, JSONObject object,
-                              AlertDialog progress, OrderAdapter orderAdapter, String TotalPrice) {
+                              AlertDialog progress, OrderAdapter orderAdapter, String TotalPrice, int WalletStatus,
+                              int CreditorState, double NewWallet, double lastUpdateWallet) {
         this.data = datas;
         this.context = context;
         this.myPosition = position;
-//        this.alldata = alldata;
-//        this.OrderId = OrderId;
         this.dialog = progress;
-//        this.total = total;
         jsonObject = object;
         this.orderAdapter = orderAdapter;
         this.TotalPrice = TotalPrice;
+
+        // for wallet
+        this.WalletStatus = WalletStatus;
+        this.CreditorState = CreditorState;
+        this.NewWallet = NewWallet;
+        this.lastUpdateWallet = lastUpdateWallet;
     }
 
     @Override
@@ -93,20 +99,6 @@ public class AllDeliveryAdapter extends RecyclerView.Adapter<AllDeliveryAdapter.
         return data.get(0).getAllDelivery().size();
     }
 
-    @Override
-    public void Success(String text) {
-        dialog.dismiss();
-        Tools.getInstance(context).ToastMessage("سفارش با موفقیت ارسال شد!");
-    }
-
-    @Override
-    public void Failed(String error) {
-        Tools.getInstance(context).ToastMessage("خطا در اتصال به سرور ، دوباره تلاش کنید.");
-    }
-
-    public interface AllSuccess {
-        void success(String s);
-    }
 
     class myViewHolder extends RecyclerView.ViewHolder {
 
@@ -181,7 +173,6 @@ public class AllDeliveryAdapter extends RecyclerView.Adapter<AllDeliveryAdapter.
 //        notifyDataSetChanged();
 //    }
 
-
     public void updateFactor(JSONObject object, int bikePosition, myViewHolder holder) {
 
 //        Log.e("dateee", data.size() + " | " + bikePosition + " | " + myPosition);
@@ -194,6 +185,32 @@ public class AllDeliveryAdapter extends RecyclerView.Adapter<AllDeliveryAdapter.
             params.put("BikeId", data.get(0).getAllDelivery().get(bikePosition).getId());
             Log.e("TotlaLast", TotalPrice + " |");
             params.put("Total", TotalPrice);
+
+//            params.put("OldWallet", String.valueOf((int)data.get(myPosition).getWallet()));
+//            params.put("NewWallet", String.valueOf((int) lastUpdateWallet));
+
+
+//            params.put("walletStatus", String.valueOf(WalletStatus));
+//            if (WalletStatus == 0) { // nothing
+////                params.put("payType", Payment); // 0-> offline  1-> online
+//            } else if (WalletStatus < 0) { // debtor
+////                params.put("payType", Payment); // 0-> offline  1-> online
+
+                //params.put("amountOfDebt", String.valueOf((int) Math.abs(lastUpdateWallet)));
+
+//            } else if (WalletStatus > 0) { // creditor
+//
+//                params.put("CreditorStatus", String.valueOf(CreditorState));
+
+//                params.put("amountOfDebt", String.valueOf((int) Math.abs(lastUpdateWallet)));
+
+
+//                params.put("payType", Payment); // 2-> online/wallet  3-> local/wallet  4-> wallet
+
+//                if (CreditorState == 1) { //1-> sum<creditor
+//                    params.put("newAmountOfDebt", String.valueOf((int)Math.abs(NewWallet)));
+//                }
+//            }
 
             Log.e("TotlaLast1212", params.toString() + " |");
 

@@ -35,7 +35,7 @@ import ir.stit.ir.charkhtafi.Utils.Tools;
 import ir.stit.ir.charkhtafi.Utils.Views.CustomTextView;
 
 
-public class OrderAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> implements AllDeliveryAdapter.AllSuccess {
+public class OrderAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
     private List<OrderModel> data;
     private Activity context;
@@ -44,6 +44,11 @@ public class OrderAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
 
     //    private static final int FOOTER = 0;
     private static final int DEFAULT = 1;
+
+
+    // for wallet
+    private int WalletStatus = 0, CreditorState = 0;
+    private double NewWallet, lastUpdateWallet;
 
     public OrderAdapter(List<OrderModel> datas, Activity context) {
         this.context = context;
@@ -257,11 +262,18 @@ public class OrderAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
                     }
 
                 }
+                Log.e("state_1", Double.parseDouble(data.get(position).getTotalPrice()) + " | " +  Double.parseDouble(All.getString("Total")));
+                double result = Double.parseDouble(data.get(position).getTotalPrice()) - Double.parseDouble(All.getString("Total"));
+                lastUpdateWallet = result + data.get(position).getWallet();
+                Log.e("state_2", result +" | " + lastUpdateWallet);
 
+//                CalculateWallet(lastUpdateWallet, Double.parseDouble(All.getString("Total")));
 
+//                All.put("OldWallet", String.valueOf((int)data.get(position).getWallet()));
+//                All.put("NewWallet", String.valueOf((int)lastUpdateWallet));
                 All.put("ProductInfo", array);
 
-                Log.e("dddddddddddddd", data.get(position).getTotalPrice() + " |");
+                Log.e("dddddddddddddd", data.get(position).getTotalPrice() + " | " + All.toString() + " | " + lastUpdateWallet);
                 ShowDialogDelivery(position, data, All, data.get(position).getTotalPrice());
 
             } catch (JSONException e) {
@@ -290,12 +302,6 @@ public class OrderAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
             ((myCustomViewHolder) holder).Active.setVisibility(View.VISIBLE);
         }
 
-    }
-
-    ///// about delete row of recyclerView
-    @Override
-    public void success(String s) {
-        removeAt(Integer.parseInt(s));
     }
 
 
@@ -339,7 +345,6 @@ public class OrderAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
         }
     }
 
-
     private void ShowDialog(final int position) {
 
         try {
@@ -376,7 +381,6 @@ public class OrderAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
         }
     }
 
-
     private void ShowDialogDelivery(final int position, List<OrderModel> models, JSONObject object, String TotlaPrice) {
 
         try {
@@ -393,13 +397,13 @@ public class OrderAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
             RecyclerView Add = progress.findViewById(R.id.CustomAllDelivery);
             ImageView cancel = progress.findViewById(R.id.CustomAllDeliveryCancel);
             if (Add != null && cancel != null) {
-                AllDeliveryAdapter allDeliveryAdapter = new AllDeliveryAdapter(models, context, position, object, progress, this, TotlaPrice);
+                AllDeliveryAdapter allDeliveryAdapter = new AllDeliveryAdapter(models, context, position, object, progress,
+                        this, TotlaPrice,WalletStatus, CreditorState, NewWallet, lastUpdateWallet);
                 Add.setLayoutManager(new LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false));
                 Add.setAdapter(allDeliveryAdapter);
 
                 cancel.setOnClickListener(v -> progress.dismiss());
             }
-
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -411,7 +415,6 @@ public class OrderAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
         notifyItemRemoved(position);
         notifyDataSetChanged();
     }
-
 
     // user accept this order or not
     private void sendActivatedFactor(String FactorId, String Status, myCustomViewHolder holder, int position, int state) {
@@ -491,5 +494,74 @@ public class OrderAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
         }
 
     }
+
+
+    private double CalculateWallet(double myWallet, double ourTotal) {
+        Log.e("sdf", myWallet + " | " + ourTotal + " | " );
+
+        if (myWallet < 0) { // Debtour
+
+            ourTotal = (ourTotal) - (myWallet);
+            WalletStatus = 1;
+//
+//            if (Payment.equals("1")) {
+//                BtnSend.setText("ثبت سفارش و پرداخت آنلاین");
+//            } else {
+//                BtnSend.setText("ثبت سفارش");
+//            }
+        }
+
+        else if (myWallet > 0) { // creditor
+            WalletStatus = 2;
+            ourTotal = (ourTotal) - (myWallet);
+            Log.e("sdf", "1");
+
+            if (Math.round(ourTotal) == 0) { // sum == creditor
+
+                CreditorState = 0;
+//                Payment = "4";
+
+                Log.e("sdf", "2");
+            } else if (Math.round(ourTotal) > 0) { // sum > creditor
+
+                CreditorState = 2;
+//                if (Payment.equals("1")) {
+//                    BtnSend.setText("ثبت سفارش و پرداخت آنلاین");
+//                    Payment = "2";
+//                } else {
+//                    BtnSend.setText("ثبت سفارش");
+//                    Payment = "3";
+//                }
+//                Total.setText(" مجموع :        " + Tools.getInstance(getBaseContext()).FormattedPrice2(String.valueOf(((int) Math.round(ourTotal)))).concat(" " + " تومان"));
+
+
+                Log.e("sdf", "3");
+
+            } else if (Math.round(ourTotal) < 0) { // sum < creditor
+
+                CreditorState = 1;
+//                Payment = "4";
+                NewWallet = ourTotal;
+//                BtnSend.setText("ثبت سفارش و پرداخت از کیف پول");
+//                Total.setText(" مجموع :     " + String.valueOf("0").concat(" " + " تومان"));
+
+
+
+                Log.e("sdf", "4" + ourTotal + " | " + (int) Math.round(ourTotal));
+            }
+
+        } else if (myWallet == 0) {
+
+//            if (Payment.equals("1")) {
+//                BtnSend.setText("ثبت سفارش و پرداخت آنلاین");
+//            } else {
+//                BtnSend.setText("ثبت سفارش");
+//            }
+//            Total.setText(" مجموع :        " + Tools.getInstance(getBaseContext()).FormattedPrice2(String.valueOf(((int) Math.round(ourTotal)))).concat(" " + " تومان"));
+        }
+
+        return ourTotal;
+    }
+
 
 }
