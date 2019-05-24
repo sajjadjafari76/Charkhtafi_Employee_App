@@ -183,7 +183,7 @@ public class AllDeliveryAdapter extends RecyclerView.Adapter<AllDeliveryAdapter.
             params.put("OPR", "UPDATEPRODUCTS");
             params.put("Data", object.toString());
             params.put("BikeId", data.get(0).getAllDelivery().get(bikePosition).getId());
-            Log.e("TotlaLast", TotalPrice + " |");
+            Log.e("TotalLast", TotalPrice + " |");
             params.put("Total", TotalPrice);
 
 //            params.put("OldWallet", String.valueOf((int)data.get(myPosition).getWallet()));

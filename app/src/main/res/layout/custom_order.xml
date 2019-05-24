@@ -52,7 +52,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/CustomOrder_View1"
-            android:visibility="gone">
+            android:visibility="visible">
 
 
             <android.support.v7.widget.CardView
@@ -88,6 +88,87 @@
                 android:layout_marginBottom="5dp"
                 android:background="#F5F5F5" />
 
+
+            <RelativeLayout
+                android:id="@+id/CustomOrder_Active"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_below="@+id/CustomOrder_View4"
+                android:gravity="center"
+                android:visibility="visible">
+
+
+                <!--<ir.stit.ir.charkhtafi.Utils.Views.CustomTextView-->
+                <!--android:id="@+id/Order_Question"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:text="این فاکتور به شما ارجاع داده شده است."-->
+                <!--android:textColor="#000" />-->
+
+
+                <RelativeLayout
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:id="@+id/Order_ButtonView">
+
+
+                    <Button
+                        android:id="@+id/Order_Yes"
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:backgroundTint="#00FF00"
+                        android:fontFamily="@font/shabnam"
+                        android:text="پذیرش"
+                        android:textColor="#FFF" />
+
+                    <ProgressBar
+                        android:id="@+id/Order_Progress_Yes"
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:layout_centerInParent="true"
+                        android:elevation="8dp"
+                        android:indeterminate="true"
+                        android:indeterminateTint="#FFF"
+                        android:visibility="gone" />
+
+                </RelativeLayout>
+
+
+                <RelativeLayout
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:id="@+id/Order_ButtonViewNo"
+                    android:layout_toLeftOf="@+id/Order_ButtonView">
+
+
+                    <Button
+                        android:id="@+id/Order_No"
+                        android:layout_width="110dp"
+                        android:layout_height="wrap_content"
+                        android:backgroundTint="#FF0000"
+                        android:fontFamily="@font/shabnam"
+                        android:text="عدم پذیرش"
+                        android:textColor="#FFF" />
+
+                    <ProgressBar
+                        android:id="@+id/Order_Progress_No"
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:layout_centerInParent="true"
+                        android:elevation="8dp"
+                        android:indeterminate="true"
+                        android:indeterminateTint="#FFF"
+                        android:visibility="gone" />
+
+                </RelativeLayout>
+
+
+
+
+            </RelativeLayout>
+
             <android.support.v7.widget.CardView
                 android:id="@+id/CustomOrder_View3"
                 android:layout_width="130dp"
@@ -99,7 +180,8 @@
                 android:focusable="true"
                 android:foreground="?android:attr/selectableItemBackground"
                 app:cardCornerRadius="3dp"
-                app:cardElevation="2dp">
+                app:cardElevation="2dp"
+                android:visibility="gone">
 
                 <ir.stit.ir.charkhtafi.Utils.Views.CustomTextView
                     android:id="@+id/CustomOrder_Send"
@@ -118,87 +200,7 @@
 
         </RelativeLayout>
 
-        <RelativeLayout
-            android:id="@+id/CustomOrder_Active"
-            android:layout_width="match_parent"
-            android:layout_height="200dp"
-            android:layout_below="@+id/CustomOrder_View1"
-            android:gravity="center"
-            android:visibility="visible">
 
-
-            <ir.stit.ir.charkhtafi.Utils.Views.CustomTextView
-                android:id="@+id/Order_Question"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="این فاکتور به شما ارجاع داده شده است."
-                android:textColor="#000" />
-
-
-            <RelativeLayout
-                android:layout_width="100dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:layout_below="@+id/Order_Question"
-                android:id="@+id/Order_ButtonView">
-
-
-                <Button
-                    android:id="@+id/Order_Yes"
-                    android:layout_width="100dp"
-                    android:layout_height="wrap_content"
-                    android:backgroundTint="#00FF00"
-                    android:fontFamily="@font/shabnam"
-                    android:text="پذیرش"
-                    android:textColor="#FFF" />
-
-                <ProgressBar
-                    android:id="@+id/Order_Progress_Yes"
-                    android:layout_width="25dp"
-                    android:layout_height="25dp"
-                    android:layout_centerInParent="true"
-                    android:elevation="8dp"
-                    android:indeterminate="true"
-                    android:indeterminateTint="#FFF"
-                    android:visibility="gone" />
-
-            </RelativeLayout>
-
-
-            <RelativeLayout
-                android:layout_width="100dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:layout_below="@+id/Order_Question"
-                android:id="@+id/Order_ButtonViewNo"
-                android:layout_toLeftOf="@+id/Order_ButtonView">
-
-
-                <Button
-                    android:id="@+id/Order_No"
-                    android:layout_width="110dp"
-                    android:layout_height="wrap_content"
-                    android:backgroundTint="#FF0000"
-                    android:fontFamily="@font/shabnam"
-                    android:text="عدم پذیرش"
-                    android:textColor="#FFF" />
-
-                <ProgressBar
-                    android:id="@+id/Order_Progress_No"
-                    android:layout_width="25dp"
-                    android:layout_height="25dp"
-                    android:layout_centerInParent="true"
-                    android:elevation="8dp"
-                    android:indeterminate="true"
-                    android:indeterminateTint="#FFF"
-                    android:visibility="gone" />
-
-            </RelativeLayout>
-
-
-
-
-        </RelativeLayout>
 
     </RelativeLayout>
 

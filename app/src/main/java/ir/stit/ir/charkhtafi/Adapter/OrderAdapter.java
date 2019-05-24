@@ -311,7 +311,8 @@ public class OrderAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
         private ImageView CustomOrder_Add;
         private CustomTextView Send, Description, CustomOrder_Factor;
         private TextView Yes, No;
-        private RelativeLayout View1, Active;
+        private RelativeLayout Active;
+        private CardView View1;
         private ImageView PreOrder;
         private ProgressBar Progress_Yes, Progress_No;
 
@@ -324,7 +325,7 @@ public class OrderAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
             CustomOrder_Factor = itemView.findViewById(R.id.CustomOrder_Factor);
             Yes = itemView.findViewById(R.id.Order_Yes);
             No = itemView.findViewById(R.id.Order_No);
-            View1 = itemView.findViewById(R.id.CustomOrder_View22);
+            View1 = itemView.findViewById(R.id.CustomOrder_View3);
             Active = itemView.findViewById(R.id.CustomOrder_Active);
             PreOrder = itemView.findViewById(R.id.CustomOrder_PreOrderImage);
             Progress_Yes = itemView.findViewById(R.id.Order_Progress_Yes);

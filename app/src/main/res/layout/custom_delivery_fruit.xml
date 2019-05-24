@@ -34,26 +34,29 @@
             android:id="@+id/DeliveryFruit_Name"/>
 
         <ir.stit.ir.charkhtafi.Utils.Views.CustomTextView
-            android:layout_width="75dp"
+            android:layout_width="wrap_content"
             android:layout_height="23dp"
-            android:layout_marginLeft="5dp"
-            android:layout_centerVertical="true"
             android:background="@drawable/shape_custom_total_green"
             android:text="12 کیلوگرم"
             android:textColor="#FFF"
             android:gravity="center"
             android:textSize="11sp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
             android:singleLine="true"
             android:maxLines="1"
-            android:layout_toRightOf="@+id/DeliveryFruit_TotalPrice"
-            android:id="@+id/DeliveryFruit_TotalWeight"/>
+            android:layout_marginLeft="10dp"
+            android:layout_alignParentLeft="true"
+            android:layout_marginTop="3dp"
+            android:id="@+id/DeliveryFruit_TotalWeight"
+            android:layout_below="@+id/DeliveryFruit_TotalPrice"/>
 
         <ir.stit.ir.charkhtafi.Utils.Views.CustomTextView
             android:layout_width="wrap_content"
             android:layout_height="23dp"
             android:layout_alignParentLeft="true"
             android:layout_marginLeft="10dp"
-            android:layout_centerVertical="true"
+            android:layout_marginTop="5dp"
             android:background="@drawable/shape_custom_total"
             android:text="12 کیلوگرم"
             android:textColor="#FFF"
