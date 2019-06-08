@@ -22,6 +22,7 @@ public class OrderModel {
     private List<AllDeliveryModel> allDelivery;
     private boolean Active;
     private double Wallet;
+    private String Address;
 
 
     public String getId() {
@@ -135,5 +136,13 @@ public class OrderModel {
 
     public void setWallet(double wallet) {
         Wallet = wallet;
+    }
+
+    public String getAddress() {
+        return Address;
+    }
+
+    public void setAddress(String address) {
+        Address = address;
     }
 }

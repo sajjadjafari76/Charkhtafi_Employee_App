@@ -1,6 +1,5 @@
 package ir.stit.ir.charkhtafi.Fragment;
 
-
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.annotation.Nullable;
@@ -41,18 +40,15 @@ import ir.stit.ir.charkhtafi.Utils.Tools;
 
 public class Order extends Fragment {
 
-    View view;
-
+    private View view;
     private boolean doubleBackToExitPressedOnce;
     private ImageView CustomOrder_Add;
     private LinearLayout Loading, Order_Connectivity, Order_Empty;
     private OrderAdapter adapter;
-
     private RecyclerView orderRecycler;
     private SwipeRefreshLayout Refresh;
     private AlphaAnimation inAnimation;
     private AlphaAnimation outAnimation;
-
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -486,6 +482,7 @@ public class Order extends Fragment {
                                     orderModel.setDescription(FactorObject.getString("description"));
                                     orderModel.setDomainOffPercent(Float.parseFloat(FactorObject.getString("offPercent")));
                                     orderModel.setDomainStatus(FactorObject.getInt("offDomain"));
+                                    orderModel.setAddress(FactorObject.getString("address"));
                                     orderModel.setWallet(Double.parseDouble(FactorObject.getString("camount")));
 
                                     JSONArray FruitArray = FactorObject.getJSONArray("detail");

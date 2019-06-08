@@ -47,13 +47,13 @@
 
         </android.support.v7.widget.CardView>
 
-        <RelativeLayout
+        <LinearLayout
             android:id="@+id/CustomOrder_View22"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:orientation="vertical"
             android:layout_below="@+id/CustomOrder_View1"
             android:visibility="visible">
-
 
             <android.support.v7.widget.CardView
                 android:id="@+id/CustomOrder_View2"
@@ -72,16 +72,50 @@
                 android:id="@+id/CustomOrderDescription"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/CustomOrder_View2"
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
                 android:textColor="#000" />
 
             <View
-                android:id="@+id/CustomOrder_View4"
+                android:id="@+id/CustomOrder_View5"
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
-                android:layout_below="@+id/CustomOrderDescription"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="11dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginBottom="5dp"
+                android:background="#F5F5F5" />
+
+            <ir.stit.ir.charkhtafi.Utils.Views.CustomTextView
+                android:id="@+id/CustomOrderAddress"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:textColor="#000" />
+
+            <View
+                android:id="@+id/CustomOrder_View7"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="11dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginBottom="5dp"
+                android:background="#F5F5F5" />
+
+            <ir.stit.ir.charkhtafi.Utils.Views.CustomTextView
+                android:id="@+id/CustomOrderTotalPrice"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:textColor="#000" />
+
+            <View
+                android:id="@+id/CustomOrder_View8"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
                 android:layout_marginLeft="10dp"
                 android:layout_marginTop="11dp"
                 android:layout_marginRight="10dp"
@@ -93,7 +127,6 @@
                 android:id="@+id/CustomOrder_Active"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
-                android:layout_below="@+id/CustomOrder_View4"
                 android:gravity="center"
                 android:visibility="visible">
 
@@ -198,7 +231,7 @@
             </android.support.v7.widget.CardView>
 
 
-        </RelativeLayout>
+        </LinearLayout>
 
 
 

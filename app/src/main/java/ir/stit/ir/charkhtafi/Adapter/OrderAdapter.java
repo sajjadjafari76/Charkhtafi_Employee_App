@@ -2,6 +2,7 @@ package ir.stit.ir.charkhtafi.Adapter;
 
 import android.app.Activity;
 import android.graphics.drawable.ColorDrawable;
+import android.location.Address;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.LinearLayoutManager;
@@ -302,6 +303,9 @@ public class OrderAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
             ((myCustomViewHolder) holder).Active.setVisibility(View.VISIBLE);
         }
 
+        ((myCustomViewHolder) holder).Address.setText("آدرس : " + data.get(position).getAddress());
+        ((myCustomViewHolder) holder).TotalPrice.setText("قیمت کل : " + Tools.getInstance(context).FormattedPrice2(data.get(position).getTotalPrice()));
+
     }
 
 
@@ -309,7 +313,7 @@ public class OrderAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
 
         private RecyclerView recyclerView;
         private ImageView CustomOrder_Add;
-        private CustomTextView Send, Description, CustomOrder_Factor;
+        private CustomTextView Send, Description, CustomOrder_Factor, TotalPrice, Address;
         private TextView Yes, No;
         private RelativeLayout Active;
         private CardView View1;
@@ -322,6 +326,8 @@ public class OrderAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
             recyclerView = itemView.findViewById(R.id.CustomOrderRecycler);
             Send = itemView.findViewById(R.id.CustomOrder_Send);
             Description = itemView.findViewById(R.id.CustomOrderDescription);
+            TotalPrice = itemView.findViewById(R.id.CustomOrderTotalPrice);
+            Address = itemView.findViewById(R.id.CustomOrderAddress);
             CustomOrder_Factor = itemView.findViewById(R.id.CustomOrder_Factor);
             Yes = itemView.findViewById(R.id.Order_Yes);
             No = itemView.findViewById(R.id.Order_No);
