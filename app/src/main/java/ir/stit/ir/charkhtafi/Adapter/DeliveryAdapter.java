@@ -110,12 +110,12 @@ public class DeliveryAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
         holder1.Name.setText(model.getName());
         holder1.CustomOrder_Factor.setText("شماره فاکتور : ".concat(model.getId()));
 //        holder1.Family.setText( " بدهکار : " + model.getWallet());
-        holder1.Family.setText(Tools.getInstance(context).FormattedPrice2(model.getTotalOrderPrice()).concat(" تومان"));
+        holder1.Family.setText(Tools.getInstance(context).FormattedPrice2(model.getNewTotalOrderPrice()).concat(" ت"));
         holder1.Address.setText(model.getAddress());
-        holder1.Payment.setText((model.getPayment().equals("0")) ? " پرداخت اینترنتی" : "پرداخت درب منزل");
+        holder1.Payment.setText(model.getPaymentText());
         holder1.Time.setText(model.getTime());
         if ((model.getBikePrice().matches("\\d+(?:\\.\\d+)?"))) {
-            holder1.Bike.setText(Tools.getInstance(context).FormattedPrice2(model.getBikePrice()).concat(" تومان"));
+            holder1.Bike.setText(Tools.getInstance(context).FormattedPrice2(model.getBikePrice()).concat(" ت"));
         } else {
             holder1.Bike.setText(model.getBikePrice());
         }
@@ -126,9 +126,22 @@ public class DeliveryAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
             debtor = debtor + Double.parseDouble(model.getData().get(i).getDebtor());
 
         }
-        ((myCustomViewHolder) holder).Debtor.setText("بدهی: ".concat(Tools.getInstance(context).FormattedPrice2(String.valueOf((int) debtor)).concat(" تومان")));
+
+        float mydebtor = (Float.parseFloat(model.getOldTotalOrderPrice()) - Float.parseFloat(model.getNewTotalOrderPrice()));
+//        ((myCustomViewHolder) holder).Debtor.setText("بدهی: ".concat(Tools.getInstance(context).FormattedPrice2(String.valueOf((int) debtor)).concat(" ت")));
+
+        if (mydebtor == 0) {
+//            ((myCustomViewHolder) holder).Debtor.setText("بدهی: ".concat(String.valueOf((int) mydebtor).concat(" ت")));
+            ((myCustomViewHolder) holder).Debtor.setText("بدون طلب/بدهی");
+        } else if (mydebtor > 0) {
+            ((myCustomViewHolder) holder).Debtor.setText("طلب: ".concat(Tools.getInstance(context).FormattedPrice2(String.valueOf((int) Math.abs(mydebtor))).concat("ت")));
+        } else if (mydebtor < 0) {
+            ((myCustomViewHolder) holder).Debtor.setText("بدهی: ".concat(Tools.getInstance(context).FormattedPrice2(String.valueOf((int) Math.abs(mydebtor))).concat("ت")));
+        }
+        ((myCustomViewHolder) holder).Wallet.setText("کیف پول : ".concat(model.getWallet() + "ت "));
 
 
+        float lastWallet = mydebtor + Float.parseFloat(model.getWallet());
         double finalDebtor = debtor;
         holder1.Ok.setOnClickListener(v -> {
             AlertDialog.Builder dialog = new AlertDialog.Builder(context);
@@ -167,7 +180,7 @@ public class DeliveryAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
             TextView question = alertDialog.findViewById(R.id.LayoutDialog_Question);
             Button reflectedBtnBack1 = alertDialog.findViewById(R.id.LayoutDialog_ReflectedBack1);
 
-            Log.e("status", model.getPayment() + " | " + Math.round(finalDebtor) );
+            Log.e("status", model.getPayment() + " | " + Math.round(finalDebtor));
 
             reflectedBtnBack1.setOnClickListener(v1 -> {
                 stepOne.setVisibility(View.VISIBLE);
@@ -202,11 +215,11 @@ public class DeliveryAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
                 Log.e("kosdast12", model.getId() + " | " + trackingCode.getText().toString() + " | " + finalDebtor);
                 if (model.getPayment().equals("0") && finalDebtor <= 0) {
                     sendFactorToServer(model.getId(), paymentType[0],
-                            trackingCode.getText().toString(), String.valueOf(finalDebtor), paymentType[1], "0",
+                            trackingCode.getText().toString(), String.valueOf(lastWallet), model.getWallet(), paymentType[1], "0",
                             position, model.getPayment(), progressBar, debutSend); // status 0-> without debtor
                 } else {
                     sendFactorToServer(model.getId(), paymentType[0],
-                            trackingCode.getText().toString(), String.valueOf(finalDebtor), paymentType[1], "1"
+                            trackingCode.getText().toString(), String.valueOf(lastWallet), model.getWallet(), paymentType[1], "1"
                             , position, model.getPayment(), progressBar, debutSend); // status 1-> with debtor
                 }
 
@@ -217,12 +230,17 @@ public class DeliveryAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
             delivered.setOnClickListener(v1 -> {
                 stepOne.setVisibility(View.GONE);
                 view.setVisibility(View.VISIBLE);
-                if (model.getPayment().equals("0") && finalDebtor <= 0) {
-                    question.setVisibility(View.VISIBLE);
-                    isPaid.setVisibility(View.GONE);
-                } else {
+                Log.e("waaaaaaaaaaaaass", lastWallet + " |");
+                if (model.getPayment().equals("0")) { // 0 online
+                    if (lastWallet >= 0) {
+                        question.setVisibility(View.VISIBLE);
+                        isPaid.setVisibility(View.GONE);
+                    } else {
+                        isPaid.setVisibility(View.VISIBLE);
+                        debutPaymentType.setVisibility(View.GONE);
+                    }
+                } else { // 1 offline
                     question.setVisibility(View.GONE);
-
                     if (model.getPayment().equals("1")) {
                         isPaid.setVisibility(View.GONE);
                         debutPaymentType.setVisibility(View.VISIBLE);
@@ -256,6 +274,33 @@ public class DeliveryAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
 
         });
 
+        Log.e("paymen454", model.getPayment() + " |");
+        switch (model.getPayment()) {
+            case "0": // online
+                ((myCustomViewHolder) holder).Result.setText("مبلغ قابل پرداخت توسط مشتری : "
+                        .concat(Tools.getInstance(context).FormattedPrice2(String.valueOf((int) ((mydebtor > 0) ? 0 : mydebtor)))));
+                break;
+            case "1": // offline
+                double result1 = Double.parseDouble(model.getNewTotalOrderPrice()) - Double.parseDouble(model.getWallet());
+                ((myCustomViewHolder) holder).Result.setText("مبلغ قابل پرداخت توسط مشتری : "
+                        .concat(Tools.getInstance(context).FormattedPrice2((String.valueOf((int)result1)))));
+                break;
+            case "3":  //offline wallet
+                Log.e("paymen454", model.getPayment() + " |" + " 1133");
+                double result = Double.parseDouble(model.getNewTotalOrderPrice()) - Double.parseDouble(model.getWallet());
+                ((myCustomViewHolder) holder).Result.setText("مبلغ قابل پرداخت توسط مشتری : "
+                        .concat(Tools.getInstance(context).FormattedPrice2(String.valueOf((int) result))));
+                break;
+            case "2":  // online wallet
+                ((myCustomViewHolder) holder).Result.setText("مبلغ قابل پرداخت توسط مشتری : "
+                        .concat(Tools.getInstance(context).FormattedPrice2(String.valueOf((int) mydebtor))));
+                break;
+            case "4": // wallet
+                ((myCustomViewHolder) holder).Result.setText("مبلغ قابل پرداخت توسط مشتری : "
+                        .concat(Tools.getInstance(context).FormattedPrice2(String.valueOf((int) mydebtor))));
+                break;
+        }
+
 
     }
 
@@ -273,13 +318,13 @@ public class DeliveryAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
 
     public class myCustomViewHolder extends RecyclerView.ViewHolder {
 
-        private CustomTextView Name;
+        private CustomTextView Name, Wallet;
         private CustomTextView Family;
         private CustomTextView Address;
         private CustomTextView Payment;
         private CustomTextView Time;
         private CustomTextView CustomOrder_Factor;
-        private CustomTextView Debtor, Bike;
+        private CustomTextView Debtor, Bike, Result;
         private ExpansionLayout expansionLayout;
         private RecyclerView RecyclerView;
         private ImageView Ok, PreOrderImage;
@@ -299,6 +344,8 @@ public class DeliveryAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
             Debtor = itemView.findViewById(R.id.CustomDelivery_Debtor);
             Bike = itemView.findViewById(R.id.CustomDelivery_Bike);
             PreOrderImage = itemView.findViewById(R.id.CustomDelivery_PreOrderImage);
+            Wallet = itemView.findViewById(R.id.CustomDelivery_Wallet);
+            Result = itemView.findViewById(R.id.CustomDelivery_Result);
 
         }
     }
@@ -457,23 +504,42 @@ public class DeliveryAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
         return data1;
     }
 
-    private void sendFactorToServer(String FactorId, String PayType, String TrackCode, String Debtor,
+    private void sendFactorToServer(String FactorId, String PayType, String TrackCode, String NewWallet, String OldWallet,
                                     String Paid, String Status, int position, String PaymentType, ProgressBar progressBar, Button debutSend) {
 
         try {
             Map<String, String> params = new HashMap<>();
+            params.put("cid", Tools.getInstance(context).read("UserId", ""));
             params.put("OPR", "DELIVERTOCUSTOMER");
-//            params.put("userid", Tools.getInstance(context).read("UserId", ""));
-//            if (Status.equals("1")) { // if debtor lower than zero or zero
+
+            if (PaymentType.equals("0")) { // online
+                if (Float.parseFloat(NewWallet) < 0) { // has any debtor or criditor
+                    params.put("Paid", Paid); // 0-> Did not pay 1-> Paid
+
+                    if (Paid.equals("1")) { //  paid
+                        params.put("PayType", PayType);// POS OR Cash  0->cash 1->POS
+                        if (PayType.equals("1")) {
+                            params.put("TrackCode", TrackCode);
+                        }
+                    } else { // Did not pay
+                        //nothing
+                    }
+                } else {
+                    //noting
+                }
+            } else { // offline
+                params.put("PayType", PayType);// POS OR Cash  0->cash 1->POS
+                if (PayType.equals("1")) {
+                    params.put("TrackCode", TrackCode);
+                }
+            }
             params.put("FactorId", FactorId);
-            params.put("PayType", PayType);// POS OR Cash  0->cash 1->POS
-            params.put("TrackCode", TrackCode);
-            params.put("Debtor", Debtor);
-            params.put("Paid", Paid); // 0-> Did not pay 1-> Paid
             params.put("PaymentType", PaymentType); // in home or online
-//            }else {
-//                params.put("Debtor", Debtor);
-//            }
+            params.put("OldWallet", OldWallet);
+            params.put("NewWallet", NewWallet);
+
+
+            Log.e("last log", params.toString() + " |");
 
             StringRequest loginRequest = new StringRequest(params, 0, new StringRequest.ResponseAction() {
                 @Override

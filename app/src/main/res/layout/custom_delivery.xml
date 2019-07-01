@@ -75,10 +75,37 @@
         </android.support.v7.widget.CardView>
 
         <LinearLayout
-            android:id="@+id/Delivery_View2"
+            android:id="@+id/Delivery_View22"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/Delivery_View1"
+            android:background="#FFF"
+            android:padding="3dp"
+            android:weightSum="2">
+
+
+            <ir.stit.ir.charkhtafi.Utils.Views.CustomTextView
+                android:id="@+id/CustomDelivery_Result"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:background="@drawable/noghte"
+                android:gravity="center"
+                android:paddingLeft="3dp"
+                android:paddingTop="5dp"
+                android:paddingRight="3dp"
+                android:paddingBottom="5dp"
+                android:textColor="#000" />
+
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:id="@+id/Delivery_View2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/Delivery_View22"
             android:background="#FFF"
             android:padding="3dp"
             android:weightSum="2">
@@ -138,22 +165,24 @@
                 android:paddingLeft="3dp"
                 android:paddingTop="5dp"
                 android:paddingRight="3dp"
+                android:textSize="13sp"
                 android:paddingBottom="5dp"
                 android:text="بدهکاری"
                 android:textColor="#000" />
 
 
             <ir.stit.ir.charkhtafi.Utils.Views.CustomTextView
-                android:id="@+id/CustomDelivery_Time"
+                android:id="@+id/CustomDelivery_Wallet"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:drawableRight="@drawable/ic_alarm_clock"
+                android:drawableRight="@drawable/ic_coins"
                 android:drawablePadding="8dp"
                 android:gravity="center_vertical"
                 android:paddingLeft="3dp"
                 android:paddingTop="5dp"
                 android:paddingRight="3dp"
+                android:textSize="13sp"
                 android:paddingBottom="5dp"
                 android:text="13 - 15"
                 android:textColor="#000" />
@@ -184,7 +213,8 @@
                 android:paddingRight="3dp"
                 android:paddingBottom="5dp"
                 android:text="نقدی"
-                android:textColor="#000" />
+                android:textColor="#000"
+                android:textSize="12sp" />
 
 
             <ir.stit.ir.charkhtafi.Utils.Views.CustomTextView
@@ -218,11 +248,23 @@
             android:text="آدرس : قزوین ، مینودر ، بدرشرقی ، بدریکم ، پلاک 26" />
 
 
+        <ir.stit.ir.charkhtafi.Utils.Views.CustomTextView
+            android:id="@+id/CustomDelivery_Time"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/CustomDelivery_Address"
+            android:drawableRight="@drawable/ic_alarm_clock"
+            android:drawablePadding="10dp"
+            android:gravity="center"
+            android:padding="4dp"
+            android:text="23:55:00 الی 23:58:00" />
+
+
         <View
             android:id="@+id/Delivery_View3"
             android:layout_width="match_parent"
             android:layout_height="1dp"
-            android:layout_below="@+id/CustomDelivery_Address"
+            android:layout_below="@+id/CustomDelivery_Time"
             android:layout_marginLeft="10dp"
             android:layout_marginTop="10dp"
             android:layout_marginRight="10dp"

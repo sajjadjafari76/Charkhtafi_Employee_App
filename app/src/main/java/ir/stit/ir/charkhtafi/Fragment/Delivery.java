@@ -60,6 +60,7 @@ public class Delivery extends Fragment {
 
         } else {
             Delivery_Connectivity.setVisibility(View.VISIBLE);
+            Loading.setVisibility(View.GONE);
         }
 
         DeliveryRefresh.setOnRefreshListener(() -> {
@@ -136,13 +137,20 @@ public class Delivery extends Fragment {
 
                                     deliveryModel.setId(deliveryObject.getString("rid"));
                                     deliveryModel.setPayment(deliveryObject.getString("paymentType"));
+                                    deliveryModel.setPaymentText(deliveryObject.getString("paystatus"));
+
                                     deliveryModel.setTime((deliveryObject.has("delivrytime")) ?
                                             deliveryObject.getString("delivrytime") : "");
+
                                     deliveryModel.setAddress(deliveryObject.getString("address"));
                                     deliveryModel.setName(deliveryObject.getString("customername"));
-                                    deliveryModel.setTotalOrderPrice(deliveryObject.getString("sumcast"));
+                                    deliveryModel.setNewTotalOrderPrice(deliveryObject.getString("NewTotal"));
+                                    deliveryModel.setOldTotalOrderPrice(deliveryObject.getString("OldTotal"));
+                                    deliveryModel.setWallet(deliveryObject.getString("camount"));
+
                                     deliveryModel.setBikePrice(deliveryObject.has("bikeprice") ?
                                             deliveryObject.getString("bikeprice") : "");
+
                                     deliveryModel.setPreOrder(deliveryObject.getBoolean("orderType"));
 
                                     JSONArray PriceArray = deliveryObject.getJSONArray("detail");

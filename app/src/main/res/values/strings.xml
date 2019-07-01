@@ -4,7 +4,7 @@
 
     /// Login page
     <string name="LogoDescription">CharkhTafi</string>
-    <string name="UserName">نام کاربری</string>
+    <string name="UserName">شماره تلفن (بدون صفر)</string>
     <string name="Mobile">رمز عبور</string>
     <string name="BtnLogin">ورود به سیستم</string>
     <string name="UserNameNullError">نام کاربری نمیتواند خالی باشد!</string>

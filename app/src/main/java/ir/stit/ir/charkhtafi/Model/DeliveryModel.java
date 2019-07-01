@@ -12,9 +12,12 @@ public class DeliveryModel {
     private String Address;
     private String BikePrice;
     private String Payment;
+    private String PaymentText;
     private String Time;
     private boolean IsPreOrder;
-    private String TotalOrderPrice;
+    private String NewTotalOrderPrice;
+    private String OldTotalOrderPrice;
+    private String Wallet;
     private List<OrderFruitModel> data;
 
     public List<OrderFruitModel> getData() {
@@ -73,12 +76,12 @@ public class DeliveryModel {
         Debtor = debtor;
     }
 
-    public String getTotalOrderPrice() {
-        return TotalOrderPrice;
+    public String getNewTotalOrderPrice() {
+        return NewTotalOrderPrice;
     }
 
-    public void setTotalOrderPrice(String totalOrderPrice) {
-        TotalOrderPrice = totalOrderPrice;
+    public void setNewTotalOrderPrice(String newTotalOrderPrice) {
+        NewTotalOrderPrice = newTotalOrderPrice;
     }
 
     public String getBikePrice() {
@@ -95,5 +98,29 @@ public class DeliveryModel {
 
     public void setPreOrder(boolean preOrder) {
         IsPreOrder = preOrder;
+    }
+
+    public String getWallet() {
+        return Wallet;
+    }
+
+    public void setWallet(String wallet) {
+        Wallet = wallet;
+    }
+
+    public String getOldTotalOrderPrice() {
+        return OldTotalOrderPrice;
+    }
+
+    public void setOldTotalOrderPrice(String oldTotalOrderPrice) {
+        OldTotalOrderPrice = oldTotalOrderPrice;
+    }
+
+    public String getPaymentText() {
+        return PaymentText;
+    }
+
+    public void setPaymentText(String paymentText) {
+        PaymentText = paymentText;
     }
 }

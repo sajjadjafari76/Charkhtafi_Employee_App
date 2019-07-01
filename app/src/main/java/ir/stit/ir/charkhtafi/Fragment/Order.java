@@ -478,12 +478,16 @@ public class Order extends Fragment {
                                     orderModel.setTotalPrice(FactorObject.getString("sumcast"));
                                     orderModel.setDeliveryPrice(FactorObject.getString("bikeprice"));
                                     orderModel.setActive(FactorObject.getBoolean("isAccepted"));
-                                    orderModel.setPreOrder(FactorObject.getBoolean("orderType"));
+                                    orderModel.setPreOrder(FactorObject.getBoolean("orderType"));// preOrder or order
                                     orderModel.setDescription(FactorObject.getString("description"));
-                                    orderModel.setDomainOffPercent(Float.parseFloat(FactorObject.getString("offPercent")));
-                                    orderModel.setDomainStatus(FactorObject.getInt("offDomain"));
+                                    orderModel.setDomainOffPercent(Float.parseFloat(FactorObject.getString("offPercent"))); // off percent
+                                    orderModel.setDomainStatus(FactorObject.getInt("offDomain")); // off code
                                     orderModel.setAddress(FactorObject.getString("address"));
-                                    orderModel.setWallet(Double.parseDouble(FactorObject.getString("camount")));
+//                                    orderModel.setWallet(Double.parseDouble(FactorObject.getString("camount"))); // his/her debtor
+                                    orderModel.setUserName(FactorObject.getString("csmName"));
+                                    orderModel.setUserPhone(FactorObject.getString("csmPhone"));
+                                    orderModel.setDeliverDate(FactorObject.getString("dtime"));
+
 
                                     JSONArray FruitArray = FactorObject.getJSONArray("detail");
                                     List<OrderFruitModel> orderFruitModelList = new ArrayList<>();
@@ -501,6 +505,7 @@ public class Order extends Fragment {
                                         fruitModel.setDegree(fruitObject.getString("pqg"));
                                         fruitModel.setPriceId(fruitObject.getString("pfid"));
                                         fruitModel.setOff(fruitObject.getString("poff"));
+                                        fruitModel.setFestivalPercent(fruitObject.getString("festPercent"));
 
                                         double sum = Double.parseDouble(fruitObject.getString("pprice"))
                                                 * Float.parseFloat(fruitObject.getString("pmuch"));

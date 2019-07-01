@@ -626,7 +626,7 @@ public class Functions {
                                                     )
                                             )
                                     );
-                                    model.setTotalOrderPrice("قیمت کل : " + Tools.getInstance(context).FormattedPrice2(object.getString("newTotal")));
+                                    model.setNewTotalOrderPrice("قیمت کل : " + Tools.getInstance(context).FormattedPrice2(object.getString("newTotal")));
                                     List<HashMap<String, Object>> data = null;
                                     JSONArray array1 = object.getJSONArray("order_items");
 

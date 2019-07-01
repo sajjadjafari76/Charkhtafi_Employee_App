@@ -144,7 +144,7 @@ public class OrderAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
 
                             double prices = (Double.parseDouble(data.get(position).getFruitModel().get(i).getPrice()))
                                     - ((Double.parseDouble(data.get(position).getFruitModel().get(i).getPrice()) / 100)
-                                    * Float.parseFloat(data.get(position).getFruitModel().get(i).getOff()));
+                                    * (Float.parseFloat(data.get(position).getFruitModel().get(i).getOff()) + Float.parseFloat(data.get(position).getFruitModel().get(i).getFestivalPercent())));
 
                             sum = sum + prices * Float.parseFloat(object.getString("NewWeight"));
 
@@ -154,9 +154,9 @@ public class OrderAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
                             array.put(object);
 
                             if (data.get(position).getDeliveryPrice().matches("\\d+(?:\\.\\d+)?")) {
-                                All.put("Total", String.valueOf((((int) sum) + Double.parseDouble(data.get(position).getDeliveryPrice()))));
+                                All.put("NewTotal", String.valueOf((((int) sum) + Double.parseDouble(data.get(position).getDeliveryPrice()))));
                             } else {
-                                All.put("Total", String.valueOf((int) sum));
+                                All.put("NewTotal", String.valueOf((int) sum));
                             }
 
                         } catch (Exception e) {
@@ -189,7 +189,7 @@ public class OrderAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
 
                             double prices = (Double.parseDouble(data.get(position).getFruitModel().get(i).getPrice()))
                                     - ((Double.parseDouble(data.get(position).getFruitModel().get(i).getPrice()) / 100)
-                                    * Float.parseFloat(data.get(position).getFruitModel().get(i).getOff()));
+                                    * (Float.parseFloat(data.get(position).getFruitModel().get(i).getOff()) + Float.parseFloat(data.get(position).getFruitModel().get(i).getFestivalPercent())));
 
                             sum = sum + prices * Float.parseFloat(object.getString("NewWeight"));
 
@@ -204,14 +204,13 @@ public class OrderAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
 //                                All.put("Total", String.valueOf((int) sum));
                                 //nothing to do
                             }
-                            All.put("Total", String.valueOf(sum - ((sum / 100) * data.get(position).getDomainOffPercent())));
+                            All.put("NewTotal", String.valueOf(sum - ((sum / 100) * data.get(position).getDomainOffPercent())));
                         } catch (Exception e) {
                             e.printStackTrace();
                             Log.e("OffDomain==1", e.toString());
                         }
                     }
                 } else if (data.get(position).getDomainStatus() == 3) { // this means that domain off effect on product
-
 
                     for (int i = 0; i < data.get(position).getFruitModel().size(); i++) {
 
@@ -235,9 +234,9 @@ public class OrderAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
 
                             float off = 0;
                             if (data.get(position).getFruitModel().get(i).isDomainOff()) {
-                                off = Float.parseFloat(data.get(position).getFruitModel().get(i).getOff()) + data.get(position).getDomainOffPercent();
+                                off = (Float.parseFloat(data.get(position).getFruitModel().get(i).getOff()) + data.get(position).getDomainOffPercent() + Float.parseFloat(data.get(position).getFruitModel().get(i).getFestivalPercent()));
                             }else {
-                                off = Float.parseFloat(data.get(position).getFruitModel().get(i).getOff());
+                                off = Float.parseFloat(data.get(position).getFruitModel().get(i).getOff()) + Float.parseFloat(data.get(position).getFruitModel().get(i).getFestivalPercent());
                             }
 
                             double prices = (Double.parseDouble(data.get(position).getFruitModel().get(i).getPrice()))
@@ -251,9 +250,9 @@ public class OrderAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
                             array.put(object);
 
                             if (data.get(position).getDeliveryPrice().matches("\\d+(?:\\.\\d+)?")) {
-                                All.put("Total", String.valueOf((((int) sum) + Double.parseDouble(data.get(position).getDeliveryPrice()))));
+                                All.put("NewTotal", String.valueOf((((int) sum) + Double.parseDouble(data.get(position).getDeliveryPrice()))));
                             } else {
-                                All.put("Total", String.valueOf((int) sum));
+                                All.put("NewTotal", String.valueOf((int) sum));
                             }
 
                         } catch (Exception e) {
@@ -263,8 +262,8 @@ public class OrderAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
                     }
 
                 }
-                Log.e("state_1", Double.parseDouble(data.get(position).getTotalPrice()) + " | " +  Double.parseDouble(All.getString("Total")));
-                double result = Double.parseDouble(data.get(position).getTotalPrice()) - Double.parseDouble(All.getString("Total"));
+                Log.e("state_1", Double.parseDouble(data.get(position).getTotalPrice()) + " | " +  Double.parseDouble(All.getString("NewTotal")));
+                double result = Double.parseDouble(data.get(position).getTotalPrice()) - Double.parseDouble(All.getString("NewTotal"));
                 lastUpdateWallet = result + data.get(position).getWallet();
                 Log.e("state_2", result +" | " + lastUpdateWallet);
 
@@ -303,9 +302,11 @@ public class OrderAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
             ((myCustomViewHolder) holder).Active.setVisibility(View.VISIBLE);
         }
 
-        ((myCustomViewHolder) holder).Address.setText("آدرس : " + data.get(position).getAddress());
-        ((myCustomViewHolder) holder).TotalPrice.setText("قیمت کل : " + Tools.getInstance(context).FormattedPrice2(data.get(position).getTotalPrice()));
-
+        ((myCustomViewHolder) holder).Address.setText("آدرس : ".concat(data.get(position).getAddress()));
+        ((myCustomViewHolder) holder).TotalPrice.setText("قیمت کل : ".concat(Tools.getInstance(context).FormattedPrice2(data.get(position).getTotalPrice())));
+        ((myCustomViewHolder) holder).Phone.setText("شماره تلفن : ".concat(data.get(position).getUserPhone()));
+        ((myCustomViewHolder) holder).Name.setText("نام مشتری : ".concat(data.get(position).getUserName()));
+        ((myCustomViewHolder) holder).DeliverTime.setText("ساعت تحویل : ".concat(data.get(position).getDeliverDate()));
     }
 
 
@@ -313,7 +314,7 @@ public class OrderAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
 
         private RecyclerView recyclerView;
         private ImageView CustomOrder_Add;
-        private CustomTextView Send, Description, CustomOrder_Factor, TotalPrice, Address;
+        private CustomTextView Send, Description, CustomOrder_Factor, TotalPrice, Address, Name, Phone, DeliverTime;
         private TextView Yes, No;
         private RelativeLayout Active;
         private CardView View1;
@@ -336,6 +337,9 @@ public class OrderAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
             PreOrder = itemView.findViewById(R.id.CustomOrder_PreOrderImage);
             Progress_Yes = itemView.findViewById(R.id.Order_Progress_Yes);
             Progress_No = itemView.findViewById(R.id.Order_Progress_No);
+            Name = itemView.findViewById(R.id.CustomOrderTotalName);
+            Phone = itemView.findViewById(R.id.CustomOrderTotalPhone);
+            DeliverTime = itemView.findViewById(R.id.CustomOrderTotalDeliverTime);
         }
     }
 

@@ -22,6 +22,7 @@ public class OrderFruitModel {
         private String PriceId;
         private String Debtor;
         private boolean DomainOff;
+        private String FestivalPercent;
 
         public String getName() {
                 return Name;
@@ -149,5 +150,13 @@ public class OrderFruitModel {
 
         public void setDomainOff(boolean domainOff) {
                 DomainOff = domainOff;
+        }
+
+        public String getFestivalPercent() {
+                return FestivalPercent;
+        }
+
+        public void setFestivalPercent(String festivalPercent) {
+                FestivalPercent = festivalPercent;
         }
 }

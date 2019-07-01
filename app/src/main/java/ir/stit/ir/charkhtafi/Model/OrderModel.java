@@ -23,6 +23,9 @@ public class OrderModel {
     private boolean Active;
     private double Wallet;
     private String Address;
+    private String UserName;
+    private String UserPhone;
+    private String DeliverDate;
 
 
     public String getId() {
@@ -145,4 +148,30 @@ public class OrderModel {
     public void setAddress(String address) {
         Address = address;
     }
+
+    public String getUserName() {
+        return UserName;
+    }
+
+    public void setUserName(String userName) {
+        UserName = userName;
+    }
+
+    public String getUserPhone() {
+        return UserPhone;
+    }
+
+    public void setUserPhone(String userPhone) {
+        UserPhone = userPhone;
+    }
+
+    public String getDeliverDate() {
+        return DeliverDate;
+    }
+
+    public void setDeliverDate(String deliverDate) {
+        DeliverDate = deliverDate;
+    }
+
+
 }
