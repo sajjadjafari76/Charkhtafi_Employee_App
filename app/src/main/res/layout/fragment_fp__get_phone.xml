@@ -20,7 +20,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="start"
-            android:hint="شماره همراه خود را وارد کنید!"
+            android:hint="شماره همراه خود را بدون صفر وارد کنید!"
             android:inputType="phone"
             android:fontFamily="@font/shabnam"
             android:maxLines="1"
