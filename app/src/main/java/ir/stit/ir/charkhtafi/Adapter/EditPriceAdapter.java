@@ -80,7 +80,7 @@ public class EditPriceAdapter extends RecyclerView.Adapter<EditPriceAdapter.myVi
                     holder.CustomEditPrice_Ok.setVisibility(View.GONE);
                     updateProductPrice(model.getProduct_Id(), model.getId(), holder.EditText.getText().toString(), position, holder.Progress, holder.CustomEditPrice_Ok);
                 } else {
-                    Toast.makeText(context, "قیمت قبلی را نمیتواند وارد کنید", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(context, "قیمت قبلی را نمیتوانید وارد کنید", Toast.LENGTH_SHORT).show();
                 }
             } else {
                 Toast.makeText(context, "قیمت محصول نمیتواند خالی باشد", Toast.LENGTH_SHORT).show();

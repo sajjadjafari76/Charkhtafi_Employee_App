@@ -44,13 +44,13 @@ public class NavigationAdapter extends RecyclerView.Adapter<NavigationAdapter.my
         this.data = model;
         this.context = context;
         this.drawerLayout = drawerLayout;
-        Log.e("UserType", Tools.getInstance(context).read("UserType","") + " |");
+        Log.e("UserType", Tools.getInstance(context).read("UserType", "") + " |");
     }
 
     @Override
     public myViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         return new myViewHolder(LayoutInflater.from(context)
-                .inflate(R.layout.custom_navigation,parent,false));
+                .inflate(R.layout.custom_navigation, parent, false));
     }
 
     @Override
@@ -62,15 +62,42 @@ public class NavigationAdapter extends RecyclerView.Adapter<NavigationAdapter.my
         holder.CustomNavigationRoot.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                AppCompatActivity activity = (AppCompatActivity)v.getContext();
+                AppCompatActivity activity = (AppCompatActivity) v.getContext();
                 FragmentTransaction transaction = activity.getSupportFragmentManager().beginTransaction();
 
-                Log.e("UserType11", Tools.getInstance(context).read("UserType","") + " |");
+                Log.e("UserType11", Tools.getInstance(context).read("UserType", "") + " |");
 
 
-
-                switch (Tools.getInstance(context).read("UserType","")) {
+                switch (Tools.getInstance(context).read("UserType", "")) {
                     case "3213655546": // MainKargozar
+                        switch (position) {
+                            case 0:
+                                Edit_Price edit_price = new Edit_Price();
+                                transaction.replace(R.id.MainActivityFrameLayout, edit_price);
+                                transaction.commit();
+                                MainActivityTitle.setText("لیست محصولات");
+                                closeNavigation();
+                                break;
+                            case 1:
+                                TotalOrder totalOrder = new TotalOrder();
+                                transaction.replace(R.id.MainActivityFrameLayout, totalOrder);
+                                transaction.commit();
+                                MainActivityTitle.setText("مجموع سفارش ها");
+                                closeNavigation();
+                                break;
+                            case 2:
+                                Order order = new Order();
+                                transaction.replace(R.id.MainActivityFrameLayout, order);
+                                transaction.commit();
+                                MainActivityTitle.setText("لیست سفارش ها");
+                                closeNavigation();
+                                break;
+                            case 3:
+                                ShowDialog();
+                                break;
+                        }
+                        break;
+                    case "3213655545": // MainKargozar
                         switch (position) {
                             case 0:
                                 Edit_Price edit_price = new Edit_Price();
@@ -155,7 +182,7 @@ public class NavigationAdapter extends RecyclerView.Adapter<NavigationAdapter.my
         myViewHolder(View itemView) {
             super(itemView);
             CustomNavigationIcon = itemView.findViewById(R.id.CustomNavigationIcon);
-            CustomNavigationText =  itemView.findViewById(R.id.CustomNavigationText);
+            CustomNavigationText = itemView.findViewById(R.id.CustomNavigationText);
             CustomNavigationRoot = itemView.findViewById(R.id.CustomNavigationRoot);
         }
     }
@@ -192,13 +219,13 @@ public class NavigationAdapter extends RecyclerView.Adapter<NavigationAdapter.my
                         Tools.getInstance(context).write("UserId", "");
                         alertDialog.dismiss();
                         Intent intent = new Intent(context, Login.class);
-                        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK);
+                        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
                         context.startActivity(intent);
                     }
                 });
             }
 
-        }catch (Exception e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
